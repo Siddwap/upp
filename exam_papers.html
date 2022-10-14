@@ -1,0 +1,153 @@
+
+<script>
+    var count=0;
+    function countDown()
+    {
+        var ss=count%60;
+        var mm=parseInt(count/60);
+        if(ss<=9)
+            ss="0"+ss;
+        if(mm<=9)
+            mm="0"+mm;
+        
+        document.getElementById("count").innerHTML=mm+":"+ss;
+        count--;
+        if(count>=0)
+        {
+            setTimeout("countDown()",1000);
+        }
+        else
+        {
+        document.getElementById("count").innerHTML="<a href='#' onclick='confirmBox()' style='float:right; border:solid 1px #339900; background-color:#4CAF50; font-size:13px; color:#FFFFFF; padding:5px 15px;'>Proceed</a>";
+        }
+    }
+    
+    function verifyPasscode()
+    {
+        var dt=prompt("Please Enter Pass Code to Skip Time");
+        if(dt=="2019")
+        {
+            count=0;
+        }
+        else
+        {
+            alert("Invalid Pass Code. Try again");
+        }
+    }
+    </script>
+    
+    <link href="../admin-style.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    <!--
+    .style55 {font-size: 11px}
+    .style57 {font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif; }
+    .style58 {color: #FF0000}
+    -->
+    a:hover
+    {
+        text-decoration:none;
+        text-weight:bold;
+    }
+    </style>
+    <script>
+    function confirmBox(lang,langID)
+    {
+            if(confirm("Are You Sure to Continue typing in "+lang+"."))
+            {
+                if(langID==1)
+                {
+                    document.frm11.action="instruction_english_before.php";
+                }
+                if(langID==2)
+                {
+                    document.frm11.action="exam_papers_language.php";
+                }
+                document.frm11.exam.value=langID;
+                document.frm11.submit();
+            }
+    }
+    </script>
+    </head>
+    
+    <body onLoad="">
+    </head>
+    <title>Typing Exam</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta content="Microsoft FrontPage 5.0" name="GENERATOR">
+    <script  language="JavaScript" src="bs_table.js"></script>
+    
+    </head>
+    
+    <body bottomMargin="0" leftMargin="0" topMargin="0" rightMargin="0" onLoad="ajax_func()">
+    <div style="height:10%;; padding:5px; background-color:#295d9c;">
+        
+        <div style="width:90%; font-size:35px; padding: 5px; font-weight:bold; text-align:left; color:#FFFFFF;  text-shadow:1px 1px 5px #000000;"></div>
+        
+    </div>
+    
+     <style type="text/css">
+    <!--
+    .style1 {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+    }
+    -->
+    </style>
+    <br><br><br><br>
+    <form name="frm11" action="" method="get">
+    <input type="hidden" name="lang" value="">
+    <input type="hidden" name="exam" value="">
+    </form>
+    
+    <div style="width:100%; text-align:center;"><center>
+    <div style=" border:solid 1px #295d9c; width:800px; box-shadow:0px 0px 10px #000000;">
+    <div style="width:100%; padding:12px 0px 12px 0px; text-align:center; font-size:18px; color:#FFFFFF; box-sh5aadow:3px 3px 5px #000000; font-weight:800; background-color:#295d9c;">
+    Language of Typing Test</div>
+                 <form name="frm" action="profile.php"> 
+                    <div align="left"  style="padding:5px; color:#295d9c; padding-left:10px; height:100px;">
+    <div style="width:95%; position:relative; float:left; padding:5px; text-transform:capitalize; line-height:28px;">
+                        <table align="center" width="100%">
+    
+    <tr height='60' style="border-bottom:solid 2px;"><td width="30%">
+    <strong>1.</strong>&nbsp;&nbsp; English Typing Test</td>
+    <td width="20%">&nbsp;
+    
+    </td>
+    <td width="25%">Duration : 15 Minutes</td>
+    
+    <td id="count" align="center" style="color:#FF0000; font-weight:bold">
+    
+    <a href='#' onclick='confirmBox("ENGLISH",1)' style='float:right; border:solid 1px #339900; background-color:#4CAF50; font-size:13px; color:#FFFFFF; padding:5px 15px;'>Proceed</a>
+    </td>
+    
+    </tr>					
+    <!-- <tr height='45'>
+    <td width="30%">
+    <strong>2.</strong>&nbsp;&nbsp; Hindi Typing Test</td>
+    <td width="20%">&nbsp;</td>
+    <td width="25%">Duration : 10 Minutes</td>
+    <td id="count" align="center" style="color:#FF0000; font-weight:bold">
+    <a href='#' onclick='confirmBox("HINDI",2)' style='float:right; border:solid 1px #339900; background-color:#4CAF50; font-size:13px; color:#FFFFFF; padding:5px 15px;'>Proceed</a>
+    </td></tr>
+    <!--
+    <tr><td colspan="5" style="color:#0000ff; text-align:center; font-size:16px; padding:15px">Note : Extra time will be given to PWD candidates. Refer to instruction Page.</td></tr> -->
+    
+    
+                        </table>
+                        </div>
+                    </div>
+                    <div style="width:100%; padding:8px 0px 8px 0px; text-align:center; font-size:18px; color:#FFFFFF; box-sh5aadow:3px 3px 5px #000000; font-weight:700; background-color:#295d9c; position:relative; bottom:-21px;">
+                        <!-- <img src="images/skip_t.png" height="25" onClick="verifyPasscode()">
+                            <input type="submit" value="Back to Profile" style="height:30px; width:100px;" name="B1"> -->
+                        &nbsp;
+                     </div>
+                    </form> 
+    </div>
+    </center></div>
+    
+    <script type = "text/javascript" >  
+        function preventBack() { window.history.forward(); }  	
+        setTimeout("preventBack()", 0);  
+        window.onunload = function () { null };  
+    </script> 
+    

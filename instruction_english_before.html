@@ -1,0 +1,143 @@
+
+ 
+<script>
+    var count=0;
+    function countDown()
+    {
+        var ss=count%60;
+        var mm=parseInt(count/60);
+        if(ss<=9)
+            ss="0"+ss;
+        if(mm<=9)
+            mm="0"+mm;
+        
+        document.getElementById("count").innerHTML="Proceed After : "+mm+":"+ss;
+        count--;
+        if(count>=0)
+        {
+            setTimeout("countDown()",1000);
+        }
+        else
+        {
+        document.getElementById("count").innerHTML="<input type='submit' name='beingBnt' value='Start Keyboard Testing' style='height:35px; font-family:Verdana, Arial, Helvetica, sans-serif; width:200px; color:#000000; margin-top:5px; font-size:14px; font-weight:700; border-radius:5px;'>";
+        }
+    }
+    
+    function verifyPasscode()
+    {
+        var dt=prompt("Please Enter Pass Code to Skip Time");
+        if(dt=="2019")
+        {
+            count=0;
+        }
+        else
+        {
+            alert("Invalid Pass Code. Try again");
+        }
+    }
+    </script>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    
+    <body onLoad="countDown()" ondragstart="return false;" oncontextmenu="return false" ondragstart="return false;"  ondrop="return false"  onselectstart="return false">
+    
+    <script>
+    function validateForm()
+    {
+        if(document.getElementById("read101").checked==false)
+        {
+            alert("Please Checked Declaration");
+            document.getElementById("read101").focus;
+            return false;
+        }
+    }
+    </script>
+    <div style="width:100%; text-align:center; margin-top:5px;"><center>
+    <div style=" border:solid 1px #295d9c; width:95%; box-shadow:0px 0px 10px #000000;">
+    <div style="width:100%; padding:10px 0px 10px 0px; text-align:center; font-size:20px; color:#FFFFFF; font-weight:700; background-color:#295d9c;">
+    Instructions for the Candidates</div>
+    
+    <form action="typing_demo_english.php" method="post"  onSubmit="return validateForm()">
+    <input type="hidden" name="exam_id" value="1">
+    <div style="width:95%; padding:10px; overflow:auto; height:80%; line-height:30px; font-size:14px; font-family:Verdana, Arial, Helvetica, sans-serif; padding-right:25px; text-align:left;">
+    <table width="95%" align="center" style="font-size:12px; border-collapse:collapse" border="1">
+        <tr height="35" bgcolor="#DDDDDD">
+            <th>Sr No</th>
+            <th>	Typing Language	</th>
+            <th>Time Duration (in Minutes)</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr height="35" align="center">
+            <td>1</td>
+            <td> English</td>
+            <td> 15 </td>
+            <td>There will be 10 minutes time interval between both tests</td>
+        </tr>
+    </table>
+    <ol>
+        <li>
+    Before the start of typing test, candidate will be given 2 mins to check the functioning of all the keys on the keyboard. In-case of any problem, immediately inform the invigilator
+        </li><li>
+    Any issues raised will not be entertained after clicking the Check Box to confirm that they have tested the keyboard and it is working fine
+        </li><li>
+    The passage will be 500 words. The speed required for English typing is 30 w.p.m.
+        </li><li>
+    Following Keys will be disabled during the typing test:
+        <ul style="">	
+            <li>Escape Key</li>
+            <li>All function Keys (F1 to F12)</li>
+            <li>TAB</li>
+            <li>CAPS Lock</li> 
+            <li>Windows Key (Left & Right)</li>
+            <li>CTRL Key (Left +Right)</li>
+            <li>Alt + F4</li>
+            <li>Insert</li>
+            <li>Delete</li>
+            <li>Home</li>
+            <li>End</li>
+            <li>Page Up</li>
+            <li>Page Down</li>
+            <li>Copy and paste option will be disabled</li>
+        </ul>
+        </li><li>
+    Use of the mouse is not permissible during typing, except to go to the next page
+        </li><li>
+    To start the typing test, click on "I am ready to Begin" button
+        </li><li>
+    During the examination, the remaining time will be displayed on the top right corner of the computer screen
+        </li><li>
+    Typing Test will be automatically submitted after the stipulated time
+        </li><li>
+    Once the Typing Test is successfully submitted, candidates will be able to see the typed content on the preview screen.
+        </li><li>
+    The candidate will have to be seated in their place and will not be allowed to leave the examination hall until the entire process of examination is completed.
+        </li><li>
+    Exam will be cancelled for those candidates who are caught seeking help from other candidates, disturbing the atmosphere of the examination, or attempting to take the examination for someone else.
+        </li><li>
+    Taking recourse to unfair means or attempting to influence in any manner any person authorized to conduct the examination for the results of the examination is a serious offense and appropriate legal action will be taken against the candidate.
+        </li>
+    </ol>  
+    
+    <input type="checkbox" name="read" value="read" id="read101"><span style="color:#FF0000"> 
+    <label for="read101">Declaration: </label> I have read and understood all the above instructions. I agree that I have not brought with me any prohibited item like mobile phone etc. to the examination hall. I agree that in case of non-compliance of the instructions, I will be disqualified from taking the typing examination.</span>
+    
+    <center>
+    
+    <div id="count" style="font-size:20px; color:#FF0000; font-weight:bold">
+    
+    
+    </div>
+    
+    </center></form>
+     </div>
+    </center></div>
+    
+    <div style="position:relative; bottom:0px; background-color:#295d9c; color:#FFFFFF; height:27px; font-size:16px; line-height:25px; width:100%; padding-top:8px; text-align:center;">
+    <!-- <img src="images/skip_t.png" height="25" onClick="verifyPasscode()" style="cursor:hand;"> -->
+    </div>
+    <script type = "text/javascript" >  
+        function preventBack() { window.history.forward(); }  	
+        setTimeout("preventBack()", 0);  
+        window.onunload = function () { null };  
+    </script>

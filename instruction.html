@@ -1,0 +1,94 @@
+
+<script>
+    var count=0;
+    function countDown()
+    {
+        var ss=count%60;
+        var mm=parseInt(count/60);
+        if(ss<=9)
+            ss="0"+ss;
+        if(mm<=9)
+            mm="0"+mm;
+        
+        document.getElementById("count").innerHTML="Proceed After : "+mm+":"+ss;
+        count--;
+        if(count>=0)
+        {
+            setTimeout("countDown()",1000);
+        }
+        else
+        {
+        document.getElementById("count").innerHTML="<input type='submit' name='beingBnt' value='I am ready to Begin' style='height:35px; font-family:Verdana, Arial, Helvetica, sans-serif; width:200px; color:#000000; margin-top:5px; font-size:14px; font-weight:700; border-radius:5px;'>";
+        }
+    }
+    
+    function verifyPasscode()
+    {
+        var dt=prompt("Please Enter Pass Code to Skip Time");
+        if(dt=="2019")
+        {
+            count=0;
+        }
+        else
+        {
+            alert("Invalid Pass Code. Try again");
+        }
+    }
+    </script>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    
+    <body onLoad="countDown()" ondragstart="return false;" oncontextmenu="return false" ondragstart="return false;"  ondrop="return false"  onselectstart="return false">
+    
+    <script>
+    function validateForm()
+    {
+        if(document.getElementById("read101").checked==false)
+        {
+            alert("Please Checked :  I am ready to start english typing test. ");
+            document.getElementById("read101").focus;
+            return false;
+        }
+    }
+    </script>
+    <div style="width:100%; text-align:center; margin-top:5px;"><center>
+    <div style=" border:solid 1px #295d9c; width:95%; box-shadow:0px 0px 10px #000000;">
+    <div style="width:100%; padding:10px 0px 10px 0px; text-align:center; font-size:20px; color:#FFFFFF; font-weight:700; background-color:#295d9c;">
+    English Typing</div>
+    
+    <form action="" method="post"  onSubmit="return validateForm()">
+    <input type="hidden" name="exam_id" value="">
+    <div style="width:95%; padding:10px; overflow:auto; height:80%; line-height:30px; font-size:14px; font-family:Verdana, Arial, Helvetica, sans-serif; padding-right:25px; text-align:left;">
+    <h4 style="text-decoration:underline"></h4>
+    <table width="95%" align="center" style="border-collapse:collapse" border="1">
+        <tr height="35" bgcolor="#DDDDDD">
+            <th>Sr No</th>
+            <th>	Typing Language	</th>
+            <th>Time Duration (in Minutes)</th>
+        </tr>
+        <tr height="35" align="center">
+            <td>1</td>
+            <td> English</td>
+            <td> 15 </td>
+        </tr>
+    </table>
+     
+    <center>
+    <div style="padding: 20px">	
+        <input type="checkbox" name="read" value="read" id="read101">
+        <label style="color:#FF0000" for="read101"> I am ready to start english typing test.</label><br><br>
+        <div id="count" style="font-size:20px; color:#FF0000; font-weight:bold"></div>
+    </div>
+    </center></form>
+     </div>
+    </center></div>
+    
+    <!-- <img src="images/skip_t.png" height="25" onClick="verifyPasscode()" style="cursor:hand;"> -->
+    
+    <script type = "text/javascript" >  
+        function preventBack() { window.history.forward(); }  	
+        setTimeout("preventBack()", 0);  
+        window.onunload = function () { null };  
+    </script>
+    

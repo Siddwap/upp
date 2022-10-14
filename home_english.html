@@ -1,0 +1,297 @@
+
+<script>
+    var len=0;
+    var flag=true;
+    var tm=890;
+    
+    function timerWatch()
+    {
+            var mm=parseInt(tm/60);
+            var hh=parseInt(mm/60);
+            mm=mm%60;
+            if(hh<=9)
+                hh="0"+hh;
+            if(mm<=9)
+                mm="0"+mm;
+            var ss=tm%60;
+            if(ss<=9)
+                ss="0"+ss;
+            tm=tm-1;
+            if(tm<=0){
+                frm.submit();
+            }
+            else{
+            document.getElementById("timer").innerHTML="Time Left "+hh+":"+mm+":"+ss;
+            }	
+        var dtm=parseInt(tm%10);
+        if(dtm==0)
+        {
+         ajax_func(tm);
+        }
+        
+        if(flag==true)
+        {
+            setTimeout("timerWatch()",1000);
+        }
+    }
+    /////////////////////////////////////////////////////////////
+    function ajax_func(tm)
+    {
+        var xmlobj;
+        if(window.XMLHttpRequest)
+        {
+            xmlobj=new XMLHttpRequest();
+        }
+        else
+        {
+            xmlobj=new ActiveXObject("Microsoft.XMLHTTP");	
+        }
+        xmlobj.onreadystatechange=function()
+        {
+            if(xmlobj.readyState==4 && xmlobj.status==200)
+            {
+                flag=true;
+                var mm=parseInt(tm/60);
+                var hh=parseInt(mm/60);
+                mm=mm%60;
+                if(hh<=9)
+                    hh="0"+hh;
+                if(mm<=9)
+                    mm="0"+mm;
+                var ss=tm%60;
+                if(ss<=9)
+                    ss="0"+ss;
+                tm=tm-1;
+                if(tm<=0){
+                    frm.submit();
+                }
+                else{
+                document.getElementById("timer").innerHTML="Time Left "+hh+":"+mm+":"+ss;
+                }
+            }
+                            
+            if(xmlobj.readyState==4 && (xmlobj.status==12029 || xmlobj.status==0))
+            {
+                document.getElementById('paratxt').disabled=true;
+                document.getElementById('errorMSG').style.display="block";
+                flag=false;
+            }
+        }		
+        var para=document.getElementById("paratxt").value;
+        para1=encodeURIComponent(para);
+    
+        sendData="rem_time="+tm+"&para="+para1;
+        xmlobj.open("post","timer_english.php",true);
+        xmlobj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        //xmlobj.setRequestHeader("Content-length", sendData.length);
+        xmlobj.send(sendData);
+    }
+    /////////////////////////////////////////////////////////////////////////
+    function resumeNow()
+    {
+        flag=true;
+        document.getElementById('paratxt').disabled=false;
+        document.getElementById('errorMSG').style.display="none";
+        timerWatch();
+    }
+    </script>
+    <style>
+    #para101
+    {
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    </style>
+    <title>Secure Administrative Suite</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta content="Microsoft FrontPage 5.0" name="GENERATOR">
+    </head>
+    <body onclick="focusTxt()"  bottomMargin="0" leftMargin="0" topMargin="0" rightMargin="0" lang="hi" onload="timerWatch()"  ondragstart="return false;" oncontextmenu="return false" ondragstart="return false;"  ondrop="return false"  onselectstart="return false">
+    <div style="height:14%;; padding:5px; background-color:#295d9c; cursor:no-drop; font-family: 'Times New Roman', Times, serif;"  oncontextmenu="return false">
+        
+        <div style="width:45%; position:relative; float:left;" oncontextmenu="return false"><table width="100%"><tr><td style="padding-left:20px; width:90px">
+                    <img src="NTA_logo_1.png" style="height:99px">
+            </td><td style="font-size:32px; font-weight:bold; text-align:left; line-height:35px; color:#FFFFFF; padding-left:20px; padding-top:10px; text-shadow:2px 2px 5px #000000;">
+        English Typing  Test<br><span style='font-size:16px;'> Exam Center : Online Exam Center - Lucknow UP</span>	</td></tr></table>
+        </div>
+    
+        <div style="position:relative; float:left; width:90px;"  oncontextmenu="return false">
+        
+            <img src="12345.jpg" style="height:90px; width:85px; border-radius:15px; border:solid 1px #CCCCCC;">
+            </div>
+    <div style="width:30%; padding:8px; text-transform:santencecase; font-size:16px; text-shadow:2px 2px 3px #000000; line-height:22px; position:relative; float:left;"   oncontextmenu="return false">
+                <table style="color:#FFFFFF">
+            <tr><td>Registration No </td><td>:</td><td>1390</td></tr>
+            <tr><td>Candidate Name </td><td>:</td><td>Dummy_1390</td></tr>
+            <tr><td>Father's Name</td><td>:</td><td>XXXX_XXX</td></tr>
+            <tr><td>Exam Date & Time </td><td>:</td><td>07-10-2022 || 10:00 AM</td></tr>
+            
+        </table>	
+    </div>
+        <div style="position:relative; float:left;padding-top:15px; font-size:28px; font-weight:bold; color:#FFFFFF; text-shadow:2px 2px 3px #000000; text-align:center; width:15%;" id="timer"  oncontextmenu="return false"></div>
+    </div>
+    <script>
+        var para="The present appeal has been filed under Section 19(1) of the Family Courts Act, 1984 read with Section 28 of Hindu Marriage Act, 1955 challenging the judgment and decree dated 14.08.2019 passed by the learned Judge, Family Court, East District, Karkardooma Courts, Delhi in H.M.A. No. 309/2017, whereby the petition seeking divorce under Sections 13(1a) and 13(1b) of the Hindu Marriage Act, 1955 filed by the appellant, was dismissed. Briefly stated the facts are that marriage of the parties was solemnized on 02.05.2008. On 30.06.2009, a son, was born out of the wedlock. The case of the appellant is that on 04.01.2010, the respondent unilaterally left their matrimonial home with the child, without informing or seeking the appellant's consent.  On the same day, the appellant along with his brother and mother went to his in-law's residence at Vaishali, Ghaziabad, with the aim to bring the respondent back. However, she flatly refused to come back to the matrimonial home. Following this, there was a physical altercation between the appellant and his brother on one side, and the respondent's brothers on the other side. These experiences have led to immense bitterness in the relationship between the parties. It has further been submitted that for more than one and a half years from 04.01.2010, there was no direct communication or contact between the appellant and the respondent, or even their families.  On 06.07.2011, the appellant sent a legal notice, demanding the respondent to re-join her matrimonial home, and resume their conjugal relationship.  However, the respondent neither re-joined her matrimonial home, nor responded to the legal notice.  Troubled by this, on 20.08.2011, the appellant filed a petition under Section 9 of the Hindu Marriage Act, 1955, seeking restitution of conjugal rights, in Karkardooma Courts, Delhi.  The appellant further submitted that after receiving the notice of the appellant's petition seeking restitution of conjugal rights, rather than joining the appellant back, the respondent filed a complaint dated 10.10.2011 before the Crime Against Women (hereinafter referred to as CAW) Cell, Krishna Nagar, Delhi alleging harassment due to dowry demand and domestic violence, amongst others.  As per the appellant, the complaint before the CAW Cell was a counterblast to the appellant's petition under Section 9 of the Hindu Marriage Act, 1955.  6.  On 17.04.2012, the respondent filed a reply to the appellant's petition under Section 9 of the Hindu Marriage Act, 1955, wherein she had sought dismissal of the said petition, and also filed a copy of her CAW Cell complaint as an annexure to reiterate her allegations.  On 13.07.2012, the respondent filed a petition under Section 125 of Criminal Procedure Code, 1973 (hereinafter referred to as Cr. P.C.) seeking maintenance from the Appellant.  The appellant submits that after noting the conduct of the respondent i.e., filing complaint before the CAW cell; opposing the appellant's petition filed under Section 9 of the Hindu Marriage Act, 1955, and; on account of her adamance to not re-join her matrimonial home, the appellant withdrew his petition filed under Section 9 of the Hindu Marriage Act, 1955 on 13.12.2012.  On 27.02.2013, the appellant filed a divorce petition under Sections 13(1a) and 13(1b) of the Hindu Marriage Act, 1955 on grounds of cruelty and desertion.  On 07.10.2013, the respondent filed her written statement, reiterating her stand in her complaint filed before the CAW Cell.";
+    </script>
+    <form name="frm" method="post" action="thank_english.php">
+    <div id="mainAjax" style="" oncontextmenu="return false">
+        <div style="width:99%; padding-top:5px;">
+        <table width="100%">
+        <tr id="errorMSG" style="display:none;" align="center"><td style="text-align:center;">
+        <span style="background-color:#FFCC00; text-align:center; padding:8px; font-weight:bold; color:#FF0000;">
+        Your Network Connection has Been <div class="	">              </div>Disconnected.Please Contact the Administrator.
+        <input type="button" style="padding:2px;" value="Resume Now" onClick="resumeNow()">
+        </span>
+        </td></tr>
+        <tr><td>
+    <div>
+        <div ondragstart="return false;" style="cursor:no-drop; text-align:left; line-height:22px; font-size:18px; padding: 5px" id="para101">
+        The present appeal has been filed under Section 19(1) of the Family Courts Act, 1984 read with Section 28 of Hindu Marriage Act, 1955 challenging the judgment and decree dated 14.08.2019 passed by the learned Judge, Family Court, East District, Karkardooma Courts, Delhi in H.M.A. No. 309/2017, whereby the petition seeking divorce under Sections 13(1a) and 13(1b) of the Hindu Marriage Act, 1955 filed by the appellant, was dismissed. Briefly stated the facts are that marriage of the parties was solemnized on 02.05.2008. On 30.06.2009, a son, was born out of the wedlock. The case of the appellant is that on 04.01.2010, the respondent unilaterally left their matrimonial home with the child, without informing or seeking the appellant's consent.  On the same day, the appellant along with his brother and mother went to his in-law's residence at Vaishali, Ghaziabad, with the aim to bring the respondent back. However, she flatly refused to come back to the matrimonial home. Following this, there was a physical altercation between the appellant and his brother on one side, and the respondent's brothers on the other side. These experiences have led to immense bitterness in the relationship between the parties. It has further been submitted that for more than one and a half years from 04.01.2010, there was no direct communication or contact between the appellant and the respondent, or even their families.  On 06.07.2011, the appellant sent a legal notice, demanding the respondent to re-join her matrimonial home, and resume their conjugal relationship.  However, the respondent neither re-joined her matrimonial home, nor responded to the legal notice.  Troubled by this, on 20.08.2011, the appellant filed a petition under Section 9 of the Hindu Marriage Act, 1955, seeking restitution of conjugal rights, in Karkardooma Courts, Delhi.  The appellant further submitted that after receiving the notice of the appellant's petition seeking restitution of conjugal rights, rather than joining the appellant back, the respondent filed a complaint dated 10.10.2011 before the Crime Against Women (hereinafter referred to as CAW) Cell, Krishna Nagar, Delhi alleging harassment due to dowry demand and domestic violence, amongst others.  As per the appellant, the complaint before the CAW Cell was a counterblast to the appellant's petition under Section 9 of the Hindu Marriage Act, 1955.  6.  On 17.04.2012, the respondent filed a reply to the appellant's petition under Section 9 of the Hindu Marriage Act, 1955, wherein she had sought dismissal of the said petition, and also filed a copy of her CAW Cell complaint as an annexure to reiterate her allegations.  On 13.07.2012, the respondent filed a petition under Section 125 of Criminal Procedure Code, 1973 (hereinafter referred to as Cr. P.C.) seeking maintenance from the Appellant.  The appellant submits that after noting the conduct of the respondent i.e., filing complaint before the CAW cell; opposing the appellant's petition filed under Section 9 of the Hindu Marriage Act, 1955, and; on account of her adamance to not re-join her matrimonial home, the appellant withdrew his petition filed under Section 9 of the Hindu Marriage Act, 1955 on 13.12.2012.  On 27.02.2013, the appellant filed a divorce petition under Sections 13(1a) and 13(1b) of the Hindu Marriage Act, 1955 on grounds of cruelty and desertion.  On 07.10.2013, the respondent filed her written statement, reiterating her stand in her complaint filed before the CAW Cell.	</div>
+        <div style="width:100%; text-align:center;">
+            <textarea spellcheck="false" rows="5" name="txtData" id="paratxt" onKeyDown="heightlite()"  oncontextmenu="return false" oncontextmenu="return false"   ondrop="return false" onpaste="return false;"  oncopy="return false;" onMouseUp="return false" style="width:100%; background-color:#CCFF66; line-height:22px; padding:5px; font-size:18px; font-family: 'Times New Roman', Times, serif;" spellcheck="false" ></textarea>
+        </div>
+    <!--	<div style="height:45px; width:100%; position:relative; float:right; font-size:20px; line-height:40px; padding-left:0px;" align="center" oncontextmenu="return false">
+         <input type="submit" value="Submit Exam" name="bnt" style="height:28px; width:140px; margin:5px;">  
+        </div>
+        <div style="height:45px; width:450px; position:relative; text-align:center; float:right; font-size:20px; line-height:40px; padding-left:0px;" id="char">
+        Total Strokes : 0
+        oncontextmenu="setCaretPosition(this,this.length)"  onClick="PosEnd(this)"
+    -->
+    </div>
+    </td></tr>
+    </table>
+    </div>
+    </div>
+    
+     </form>
+    
+    
+    
+    <script>
+    function heightlite()
+     {
+        var pass=para.split(" ");
+        var len=pass.length;
+        var msg="";
+        
+        var typ=document.getElementById("paratxt").value;
+    
+        var typPara=typ.split(" ");
+        typPara = typPara.filter(elm => elm);
+        
+        var typLen=(typPara.length-1);
+        
+        if(typLen>=0){
+            msg="<font color='#0000EE'>";
+        }
+        
+        for(w=0; w<len; w++)
+        {
+           msg=msg+" "+pass[w];
+           if(typLen==w)
+           {
+               msg=msg+"</font>";
+           }
+        }
+        document.getElementById("para101").innerHTML=msg;
+        
+     }
+    
+    
+    function PosEnd(end) {
+                var len = end.value.length;
+                  
+                // Mostly for Web Browsers
+                if (end.setSelectionRange) {
+                    end.focus();
+                    end.setSelectionRange(len, len);
+                } else if (end.createTextRange) {
+                    var t = end.createTextRange();
+                    t.collapse(true);
+                    t.moveEnd('character', len);
+                    t.moveStart('character', len);
+                    t.select();
+                }
+            }
+    
+    
+    function validateForm()
+    {
+        if(document.getElementById("read101").checked==false)
+        {
+            alert("Please Checked We Have Check All Keys are working Properly Option");
+            document.getElementById("read101").focus;
+            return false;
+        }
+    }
+    function focusTxt()
+    {
+    frm.paratxt.focus();
+    }
+    frm.paratxt.focus();
+    paratxt.focus();
+    document.getElementById('paratxt').onmousedown = function(e){
+      e.preventDefault();
+    }
+    function isValidKey1(e) {
+            var evt = e || window.event;
+            if (evt) 
+            {
+                var keyCode = evt.charCode || evt.keyCode;
+                
+                if (keyCode === 8) 
+                {
+                    if (evt.preventDefault) {
+                        evt.preventDefault();
+                    } else {
+                        evt.returnValue = false;
+                    }
+                }
+                if (keyCode === 13) 
+                {
+                    if (evt.preventDefault) {
+                        evt.preventDefault();
+                    } else {
+                        evt.returnValue = false;
+                    }
+                }
+                if (keyCode === 37) 
+                {
+                    if (evt.preventDefault) {
+                        evt.preventDefault();
+                    } else {
+                        evt.returnValue = false;
+                    }
+                }
+                if (keyCode === 38) 
+                {
+                    if (evt.preventDefault) {
+                        evt.preventDefault();
+                    } else {
+                        evt.returnValue = false;
+                    }
+                }
+                if (keyCode === 39) 
+                {
+                    if (evt.preventDefault) {
+                        evt.preventDefault();
+                    } else {
+                        evt.returnValue = false;
+                    }
+                }
+                if (keyCode === 40) 
+                {
+                    if (evt.preventDefault) {
+                        evt.preventDefault();
+                    } else {
+                        evt.returnValue = false;
+                    }
+                }
+            }
+        }
+    
+    </script>
+    

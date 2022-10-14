@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    function chk()
+    {
+    if(this.document.frm.rc_number.value=="" ||  this.document.frm.password.value=="")
+    {
+    alert("Please Select all * marked fields to Proceed");
+    return false;
+    }
+    }
+    //////////////////////////////////////////////////////////////////////
+    document.addEventListenner(online, () => {
+    alert("Connected");
+    });
+    document.addEventListenner(offline, () => {
+    alert("Not Connected");
+    })
+    </script>
+    
+    <div style="text-align: right;"> 
+        <span style="color: gray; font-size: 16px" >SecuType Version 1.7.1 &copy;2022 </span>
+    </div>
+    <br>
+    <center>
+    <img src="images/NTA_logo_1.png" style="margin-bottom:10px;height: 140px">
+    </center>
+    <div style="width:100%; text-align:center;"><center>  <div style="color:green; padding:8px; font-weight:bold; font-size:20px"><br></div>
+    <div style=" border:solid 1px #295d9c; width:450px; box-shadow:0px 0px 10px #000000;">
+      
+    <div style="width:100%; padding:12px 0px 12px 0px; text-align:center; font-size:18px; color:#FFFFFF; box-sh5aadow:3px 3px 5px #000000; font-weight:700; background-color:#295d9c;">
+    CANDIDATE LOGIN FOR TYPING</div>
+                  
+                  <div align="center" style="padding-top:10px; color:#FF0000; height:25px;"><b></b></div>
+                    
+                    <form method="POST" name="frm" action="" onSubmit="">
+                    
+                    <div align="left"  style="padding:5px; color:#295d9c; padding-left:30px; height:30px;">
+                        <div style="width:40%; position:relative; float:left; padding:5px;">Roll No. </div>
+                         <div style="width:55%; position:relative; float:left">
+                    <input type="text" name="rc_number" size="25" style="height:28px; margin-bottom:4px; border:solid 1px #999999;" value="1209"></div>
+                    </div>
+                    
+                    <div align="left" style="padding:5px; top:15px; color:#295d9c; padding-left:30px; height:30px;">
+                        <div style="width:40%; position:relative; float:left; padding:5px;">Password </div>
+                        <div style="width:55%; position:relative; float:left"> 
+            <input type="password" name="password" size="25" style="height:28px; margin-top:4px; border:solid 1px #999999;" value="1234"></div>
+                    </div>
+                    <div align="left" style="padding:5px; top:15px; color:#295d9c; padding-left:30px; height:30px;">
+                        <div style="width:40%; position:relative; float:left; padding:5px;">Pin Number </div>
+                        <div style="width:55%; position:relative; float:left"> 
+            <input type="password" name="pin" size="25" style="height:28px; margin-top:4px; border:solid 1px #999999;" value="1234"></div>
+                    </div>		
+                    <div style="width:100%; padding:8px 0px 8px 0px; text-align:center; font-size:18px; color:#FFFFFF; font-weight:700; background-color:#295d9c; position:relative; bottom:-17px;">
+            <input type="submit" value="Submit" style="height:30px; width:100px;" name="B1">
+            <input type="hidden" name="act" value="chk_login"/>
+                     </div>
+        </form></div>
+        <br><br>
+        <center>
+    <div style="width:90%; text-align:center;">
+    <!--	<textarea  rows="9" name="txtData" id="paratxt" oncontextmenu="setCaretPosition(this,this.length)" ondrop="return false" onpaste="return false;"  oncopy="return false;" onMouseUp="return false" style="width:100%; background-color:#CCFF66; line-height:25px; padding:8px; font-size:18px;">Check Keyboard Keys & Demo Typing Here...</textarea>-->
+        </div>
+    
+        </center>	
+     </div>
+    </center>
+    </div></body>
+</body>
+</html>

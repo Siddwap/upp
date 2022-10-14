@@ -1,0 +1,149 @@
+
+<script>
+    var count=0;
+    function countDown()
+    {
+        var ss=count%60;
+        var mm=parseInt(count/60);
+        if(ss<=9)
+            ss="0"+ss;
+        if(mm<=9)
+            mm="0"+mm;
+        
+        document.getElementById("count").innerHTML="Proceed After : "+mm+":"+ss;
+        count--;
+        if(count>=0)
+        {
+            setTimeout("countDown()",1000);
+        }
+        else
+        {
+        document.getElementById("count").innerHTML="<input type='submit' name='beingBnt' value='Start keyboard Testing' style='height:35px; font-family:Verdana, Arial, Helvetica, sans-serif; width:200px; color:#000000; margin-top:5px; font-size:14px; font-weight:700; border-radius:5px;'>";
+        }
+    }
+    
+    function verifyPasscode()
+    {
+        var dt=prompt("Please Enter Pass Code to Skip Time");
+        if(dt=="2019")
+        {
+            count=0;
+        }
+        else
+        {
+            alert("Invalid Pass Code. Try again");
+        }
+    }
+    
+    function validateForm()
+    {
+        if(document.getElementById("read101").checked==false)
+        {
+            alert("Please Checked Declaration");
+            document.getElementById("read101").focus;
+            return false;
+        }
+    }
+    </script>
+    <link href="../admin-style.css" rel="stylesheet" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    
+    <body onLoad="countDown()" style="margin: 0px; padding: 0px" ondragstart="return false;" oncontextmenu="return false" ondragstart="return false;"  ondrop="return false"  onselectstart="return false">
+    
+    <div style="width:100%; text-align:center; margin-top:5px;"><center>
+    <div style=" border:solid 1px #295d9c; width:95%; box-shadow:0px 0px 10px #000000;">
+    <div style="width:100%; padding:10px 0px 10px 0px; text-align:center; font-size:20px; color:#FFFFFF; font-weight:700; background-color:#295d9c;">
+    अभ्यर्थियों के लिए निर्देश</div>
+    
+    <form action="typing_demo_hindi.php" method="post"  onSubmit="return validateForm()">
+    <input type="hidden" name="exam_id" value="2">
+    <div style="width:95%; padding:10px; overflow:auto; height:80%; line-height:30px; font-size:14px; font-family:Verdana, Arial, Helvetica, sans-serif; padding-right:25px; text-align:left;">
+    
+    <table width="95%" align="center" style="font-size:12px; border-collapse:collapse" border="1">
+        <tr height="35" bgcolor="#DDDDDD">
+            <th>क्रम संख्या	</th>
+            <th>	टंकण की भाषा		</th>
+            <th>समय अवधि (मिनट में)</th>
+        </tr>
+        <tr height="35" align="center">
+            <td>1</td>
+            <td> हिन्दी</td>
+            <td> 15 </td>
+        </tr>
+    </table>
+    
+    <ol>
+        <li>
+    टंकण प्रारंभ होने से पहले अभ्यर्थियों को की-बोर्ड चेक करने हेतु (दिए गए पैराग्राफ को टाइप करके) 02 मिनट का समय दिया जायेगा ताकि अभ्यर्थियों को टंकण के दौरान कोई असुविधा ना हो |
+        </li><li>
+    कीबोर्ड परीक्षण एवं उसके सही काम करने को कन्फर्म करने के लिए चेक बॉक्स पे क्लिक करने के पश्चात किसी भी समस्या पर विचार नहीं किया जाएगा |
+        </li><li>
+    For SI & ASI - गद्यांश 400 शब्दों का होगा। हिंदी टाइपिंग के लिए आवश्यक गति 25 शब्‍द प्रति मिनट है |
+    <br>For ASI -	गद्यांश 250 शब्दों का होगा। हिंदी टाइपिंग के लिए आवश्यक गति 15 शब्‍द प्रति मिनट है |
+        </li><li>
+    टंकण में Unicode INSCRIPT की-बोर्ड का प्रयोग किया जाएगा |
+        </li><li>
+    हिंदी टंकण में यदि अभ्यर्थी बैकस्पेस की का प्रयोग करता है तो टाइप किया गया पूरा शब्द हटा जाएगा |
+        </li><li>
+    कंप्यूटर में निम्नलिखित कुंजियाँ टंकण के दौरान अक्षम हो जाएंगी :
+        <ul>
+            <li>एस्केप की</li>
+            <li>सभी फंक्शन की एफ 1 से एफ 12</li>
+            <li>टैब</li>
+            <li>कैप्स लॉक</li>
+            <li>विंडोज़ की (दायाँ एवं बयां)</li>
+            <li>कण्ट्रोल की (दायाँ एवं बयां)</li>
+            <li>ऑल्ट+ एफ4</li>
+            <li>इन्सर्ट</li>
+            <li>डिलीट</li>
+            <li>होम</li>
+            <li>एंड</li>
+            <li>पेज अप</li>
+            <li>पेज डाउन</li>
+            <li>कॉपी और पेस्ट विकल्प अक्षम हो जाएगा</li>
+        </ul>	
+        </li><li>
+    टंकण के दौरान अगले पेज पर जाने के सिवाय, माउस का उपयोग अनुमन्य नहीं किया है|
+        </li><li>
+    टंकण परीक्षा शुरू करने के लिए " I am ready to begin " बटन पर क्लिक करें।
+        </li><li>
+    परीक्षा के दौरान , कंप्यूटर स्क्रीन पर दायें कोने में ऊपर लगातार शेष समय प्रदर्शित होता रहेगा ।
+        </li><li>
+    टंकण परीक्षा स्वतः निर्धारित समय के बाद जमा (सबमिट) हो जाएगा ।
+        </li><li>
+    एक बार टंकण परीक्षा सफलता पूर्वक जमा (सबमिट) हो जाने के बाद अभ्यर्थी स्क्रीन पर टाइप किए गए शब्दों  को देख पाएंगे।
+        </li><li>
+    उम्मीदवार को उनके स्थान पर बैठना होगा और परीक्षा की प्रक्रिया पूरी होने तक परीक्षा हॉल छोड़ने की अनुमति नहीं दी जाएगी।
+        </li><li>
+    उन अभ्यर्थियों की परीक्षा रद्द कर दी जाएगी जो अन्य अभ्यर्थियों से सहायता मांगते पकडे जाते हैं, परीक्षा के माहौल को बिगाड़ते हैं, या किसी और के लिए परीक्षा देने का प्रयास करते हैं|
+        </li><li>
+    अनुचित साधनों का सहारा लेना या परीक्षा आयोजित कराने के लिए अधिकृत किसी भी व्यक्ति को परीक्षा परिणामों के लिए किसी भी तरह से प्रभावित करने की कोशिश करना, एक गंभीर अपराध माना जाएगा तथा अभ्यर्थी के विरुद्ध उचित वैधानिक कार्यवाही की जाएगी.
+        </li>
+    </ol>
+    
+    
+    <input type="checkbox" name="read" value="read" id="read101"><span style="color:#FF0000"> 
+    <label for="read101">घोषणा:</label> मैंने उक्त समस्त निर्देशों को पढ़ा और समझा है। मैं सहमत हूं कि मैं अपने साथ मोबाइल फोन आदि जैसी कोई भी प्रतिबंधित वस्तु परीक्षा हॉल में नहीं लाया/लायी हूं | मैं मानता/मानती हूं कि निर्देशों का पालन नहीं करने की स्थिति में, मुझे टंकण परीक्षा हेतु अयोग्य घोषित कर दिया जाएगा.</span>
+    
+    <center>
+    
+    <div id="count" style="font-size:20px; color:#FF0000; font-weight:bold">
+    
+    
+    </div>
+    
+    </center></form>
+     </div>
+    </center></div>
+    
+    
+    <div style="position:relative; bottom:0px; background-color:#295d9c; color:#FFFFFF; height:27px; font-size:16px; line-height:25px; width:100%; padding-top:8px; text-align:center;">
+    <!-- <img src="images/skip_t.png" height="25" onClick="verifyPasscode()" style="cursor:hand;"> -->
+    </div>
+    <script type = "text/javascript" >  
+        function preventBack() { window.history.forward(); }  	
+        setTimeout("preventBack()", 0);  
+        window.onunload = function () { null };  
+    </script> 
+    

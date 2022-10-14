@@ -1,0 +1,291 @@
+
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+	<title>Typing</title>
+<script>
+var len=0;
+var flag=true;
+var tm=900;
+
+function timerWatch()
+{
+		var mm=parseInt(tm/60); 
+		var hh=parseInt(mm/60);
+		mm=mm%60;
+		if(hh<=9)
+			hh="0"+hh;
+		if(mm<=9)
+			mm="0"+mm;
+		var ss=tm%60;
+		if(ss<=9)
+			ss="0"+ss;
+		tm=tm-1;
+		if(tm<=0){
+			frm.submit();
+		}
+		else{
+		document.getElementById("timer").innerHTML="Time Left <br>"+hh+":"+mm+":"+ss;
+		}
+	setTimeout("timerWatch()",1000);
+		
+}
+/////////////////////////////////////////////////////////////
+function ajax_func(tm)
+{
+	var xmlobj;
+	if(window.XMLHttpRequest)
+	{
+		xmlobj=new XMLHttpRequest();
+	}
+	else
+	{
+		xmlobj=new ActiveXObject("Microsoft.XMLHTTP");	
+	}
+	xmlobj.onreadystatechange=function()
+	{
+		if(xmlobj.readyState==4 && xmlobj.status==200)
+		{
+			flag=true;
+			var mm=parseInt(tm/60);
+			var hh=parseInt(mm/60);
+			mm=mm%60;
+			if(hh<=9)
+				hh="0"+hh;
+			if(mm<=9)
+				mm="0"+mm;
+			var ss=tm%60;
+			if(ss<=9)
+				ss="0"+ss;
+			tm=tm-1;
+			if(tm<=0){
+				frm.submit();
+			}
+			else{
+			document.getElementById("timer").innerHTML="Time Left <br>"+hh+":"+mm+":"+ss;
+			}
+		}
+		
+		if(xmlobj.readyState==4 && (xmlobj.status==12029 || xmlobj.status==0))
+		{
+			document.getElementById('paratxt').disabled=true;
+			document.getElementById('errorMSG').style.display="block";
+			flag=false;
+		}
+	}
+	var para=document.getElementById("paratxt").value;
+	para1=encodeURIComponent(para);
+
+	sendData="rem_time="+tm+"&para="+para1;
+	xmlobj.open("post","timer_hindi.php",true);
+	xmlobj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //xmlobj.setRequestHeader("Content-length", sendData.length);
+	xmlobj.send(sendData);
+}
+////////////////////////////////////////////////////////////////////
+function resumeNow()
+{
+	flag=true;
+	document.getElementById('paratxt').disabled=false;
+	document.getElementById('errorMSG').style.display="none";
+	timerWatch();
+}
+function focusTxt()
+{
+	document.getElementById("paratxt").focus();
+}
+	document.getElementById("paratxt").focus();
+
+
+</script>
+<style> @font-face {font-family: kruti; src: url(k010.woff);}</style>
+</head>
+<body onclick="focusTxt()"  bottomMargin="0" leftMargin="0" topMargin="0" rightMargin="0" lang="hi" onload="timerWatch()"  ondragstart="return false;" oncontextmenu="return false" ondragstart="return false;"  ondrop="return false"  onselectstart="return false">
+<div style="height:105px; padding:5px; background-color:#295d9c; cursor:no-drop; font-family: 'Times New Roman', Times, serif;"  oncontextmenu="return false">
+	
+	<div style="width:45%; position:relative; float:left;"  oncontextmenu="return false">
+	    <table width="100%"><tr><td style="padding-left:20px; width:90px">
+	    	    <img src="images/NTA_logo_1.png" style="height:99px">
+	    </td><td style="font-size:32px; font-weight:bold; text-align:left; line-height:35px; color:#FFFFFF; padding-left:20px; padding-top:10px; text-shadow:2px 2px 5px #000000;">
+	Hindi Typing Test  Test<br><span style='font-size:16px;'> Exam Center : UPSI-LUCKNOW</span>	</td></tr></table>
+	</div>
+	
+    <div style="position:relative; float:left; width:90px;"  oncontextmenu="return false">
+	
+        <img src="profile/12345.jpg" style="height:90px; width:85px; border-radius:15px; border:solid 1px #CCCCCC;">
+		</div>
+<div style="width:30%; padding:0px; text-transform:santencecase; font-size:16px; text-shadow:2px 2px 3px #000000; line-height:22px; position:relative; float:left;"   oncontextmenu="return false">
+			<table style="color:#FFFFFF" cellpadding="1" cellspacing="0">
+	    <tr><td>Registration No </td><td>:</td><td>3348</td></tr>
+	    <tr><td>Candidate Name </td><td>:</td><td>Dummy_3348</td></tr>
+	    <tr><td>Father's Name</td><td>:</td><td>XXXX_XXX</td></tr>
+	    <tr><td>Exam Date & Time </td><td>:</td><td>30-09-2022 || 10:00 AM</td></tr>
+	</table>	
+</div>
+<div style="position:relative; float:left;padding-top:15px; font-size:28px; font-weight:bold; color:#FFFFFF; text-shadow:2px 2px 3px #000000; text-align:center; width:15%;" id="timer"  oncontextmenu="return false">	
+</div>
+</div>
+<script>
+    var para="हमारे जीवन में संगीत का व्यापक स्थान है। भारतवासियों को अपने प्राचीन युग से अथवा अपने पूर्वजों से शास्त्रीय संगीत के रूप में एक निधि मिली है। हमारे पूर्वजों की दृष्टि में संगीत का ध्येय आध्यात्मिक साधना था और उन्होंने संगीत का इसी आदर्श के अनुकूल विकास किया। हम कह सकते हैं कि हमारे देश में यह कला पूर्णतः के शिखर पर पहुंच चुकी थी। संगीत के ध्येय के संबंध में आज हमारे विचार चाहे कुछ भी हों, यह सभी स्वीकार करेंगे कि इसमें सामंजस्य की ओर ले जाने वाली और व्यक्त जगत में आभास और अहसास कराने वाली शक्ति निहित है। संगीत के वातावरण में ही नहीं बल्कि श्रोताओं और गायकों के मन में भी सामंजस्य की उत्पत्ति होती है। संगीत के उच्च ध्येय और व्यापक प्रभाव के कारण ही प्राचीनकाल में भारतवासियों ने संगीत को जनसाधारण के सामाजिक तथा सांस्कृतिक जीवन में ऊंचा स्थान दिया था। शायद ही कोई ऐसा भारतीय त्यौहार या उत्सव हो जिसमें संगीत का आयोजन न होता हो। संगीत जन्म से मृत्युपर्यंत हमारे साथ रहा है। हमारे सभी रीति-रिवाज़ों में इसका कुछ-न-कुछ स्थान है। शताब्दियों से हम संगीत के प्रशंसक तथा उपासक रहे है और हमने इसकी गणना सदा मानव की उच्चतम साधनाओं में की है। काल के प्रभाव से हम लोगों की रुचि में काफी परिवर्तन हुआ, परंतु शास्त्रीय संगीत उसी प्रकार बना रहा और उसमें कोई विशेष और मौलिक परिवर्तन नहीं हुआ। पर जो भी हेर-फेर हुए, वे हैं ऊपरी पोषक मात्र ही। भारतीय संगीत शरीर और आत्मा से अभी भी वही प्राचीन शास्त्रीय संगीत बना हुआ है। ऐसी आशा की जाती है कि इसमें अभी भी इतनी शक्ति है कि यह अपने को एक बार फिर आधुनिक वातावरण के अनुकूल बना लेगा। बच्चों को भगवान का अवतार माना जाता है, क्योंकि वे ऊंच-नीच, शत्रु-मित्र, छोट-बड़े, रस्म-रिवाज आदि का विचार न करके सबसे मेल-मिलाप रखते हैं। उनके आचार-व्यवहार में लाभ-हानि, रीति-रिवाज, हिन्दू-मुसलमान आदि छोटी-मोटी बातों के लिए स्थान ही नहीं होता। वे सचमुच ही मानव जाति के सच्चे प्रतिनिधि होते हैं। ज्यों-ज्यों बच्चे बड़े होते जाते हैं तो घर का सारा का सारा सामान तितर-बितर कर देते हैं। उनको लाभ-हानि, उचित-अनुचित का कोई ज्ञान नहीं होता।";
+</script>
+
+<div id="mainAjax" style="margin:5px;"  oncontextmenu="return false">
+<form name="frm" method="post" action="thank_hindi.php" >
+	<div style="width:99%;"   oncontextmenu="return false">
+	<table width="100%">
+	<tr id="errorMSG" style="display:none;" align="center"><td style="text-align:center;">
+	<span style="background-color:#FFCC00; text-align:center; padding:8px; font-weight:bold; color:#FF0000;">
+	Your Network Connection has Been Disconnected.Please Contact the Administrator.
+	<input type="button" style="padding:2px;" value="Resume Now" onClick="resumeNow()">
+	</span>
+	</td></tr>
+	<tr><td>
+		<div ondragstart="return false;" style="cursor:no-drop; line-height:25px; font-size:18px; padding: 5px" id="para101">
+	हमारे जीवन में संगीत का व्यापक स्थान है। भारतवासियों को अपने प्राचीन युग से अथवा अपने पूर्वजों से शास्त्रीय संगीत के रूप में एक निधि मिली है। हमारे पूर्वजों की दृष्टि में संगीत का ध्येय आध्यात्मिक साधना था और उन्होंने संगीत का इसी आदर्श के अनुकूल विकास किया। हम कह सकते हैं कि हमारे देश में यह कला पूर्णतः के शिखर पर पहुंच चुकी थी। संगीत के ध्येय के संबंध में आज हमारे विचार चाहे कुछ भी हों, यह सभी स्वीकार करेंगे कि इसमें सामंजस्य की ओर ले जाने वाली और व्यक्त जगत में आभास और अहसास कराने वाली शक्ति निहित है। संगीत के वातावरण में ही नहीं बल्कि श्रोताओं और गायकों के मन में भी सामंजस्य की उत्पत्ति होती है। संगीत के उच्च ध्येय और व्यापक प्रभाव के कारण ही प्राचीनकाल में भारतवासियों ने संगीत को जनसाधारण के सामाजिक तथा सांस्कृतिक जीवन में ऊंचा स्थान दिया था। शायद ही कोई ऐसा भारतीय त्यौहार या उत्सव हो जिसमें संगीत का आयोजन न होता हो। संगीत जन्म से मृत्युपर्यंत हमारे साथ रहा है। हमारे सभी रीति-रिवाज़ों में इसका कुछ-न-कुछ स्थान है। शताब्दियों से हम संगीत के प्रशंसक तथा उपासक रहे है और हमने इसकी गणना सदा मानव की उच्चतम साधनाओं में की है। काल के प्रभाव से हम लोगों की रुचि में काफी परिवर्तन हुआ, परंतु शास्त्रीय संगीत उसी प्रकार बना रहा और उसमें कोई विशेष और मौलिक परिवर्तन नहीं हुआ। पर जो भी हेर-फेर हुए, वे हैं ऊपरी पोषक मात्र ही। भारतीय संगीत शरीर और आत्मा से अभी भी वही प्राचीन शास्त्रीय संगीत बना हुआ है। ऐसी आशा की जाती है कि इसमें अभी भी इतनी शक्ति है कि यह अपने को एक बार फिर आधुनिक वातावरण के अनुकूल बना लेगा। बच्चों को भगवान का अवतार माना जाता है, क्योंकि वे ऊंच-नीच, शत्रु-मित्र, छोट-बड़े, रस्म-रिवाज आदि का विचार न करके सबसे मेल-मिलाप रखते हैं। उनके आचार-व्यवहार में लाभ-हानि, रीति-रिवाज, हिन्दू-मुसलमान आदि छोटी-मोटी बातों के लिए स्थान ही नहीं होता। वे सचमुच ही मानव जाति के सच्चे प्रतिनिधि होते हैं। ज्यों-ज्यों बच्चे बड़े होते जाते हैं तो घर का सारा का सारा सामान तितर-बितर कर देते हैं। उनको लाभ-हानि, उचित-अनुचित का कोई ज्ञान नहीं होता।	</div>
+	<div style="width:100%;">
+	<textarea spellcheck="false" rows="5" name="txtData" id="paratxt" onKeyDown="heightlite()"  oncontextmenu="return false" oncontextmenu="return false"   ondrop="return false" onpaste="return false;"  oncopy="return false;" onMouseUp="return false" style="width:100%; background-color:#CCFF66; padding:3px; font-size:18px;;" spellcheck="false" autofocus></textarea>
+	
+	</div>
+	</div>
+<!--	<div style="height:45px; width:100%; position:relative; float:right; font-size:20px; line-height:40px; padding-left:0px;" align="center" oncontextmenu="return false">
+	  <input type="submit" value="Submit Exam" name="bnt" style="height:28px; width:140px; margin:5px;">
+	</div>
+	<div style="height:45px; width:450px; position:relative; text-align:center; float:right; font-size:20px; line-height:40px; padding-left:0px;" id="char">
+	Total Strokes : 0
+-->
+	</div>
+
+	</div> 
+	</div>
+</td></tr>
+</table>
+</div>
+</form>
+<script>
+function heightlite()
+ {
+	var pass=para.split(" ");
+	var len=pass.length;
+	var msg="";
+	
+	var typ=document.getElementById("paratxt").value;
+    var typPara1=typ.split(" ");
+//	typPara = typPara.filter(elm => elm);
+	var typPara=Array();
+	for (var i = 0; i < typPara1.length; i++) 
+	{
+		if(typPara1[i]) 
+		{
+		  typPara.push(typPara1[i]);
+		}
+  	}
+	
+	var typLen=(typPara.length-1);
+	
+	if(typLen>=0){
+		msg="<font color='#0000EE'>";
+	}
+	
+	for(w=0; w<len; w++)
+	{
+	   msg=msg+" "+pass[w];
+	   if(typLen==w)
+	   {
+	   	msg=msg+"</font>";
+	   }
+	}
+	document.getElementById("para101").innerHTML=msg;
+	
+ }
+ 
+function PosEnd(end) {
+            var len = end.value.length;
+              
+            // Mostly for Web Browsers
+            if (end.setSelectionRange) {
+                end.focus();
+                end.setSelectionRange(len, len);
+            } else if (end.createTextRange) {
+                var t = end.createTextRange();
+                t.collapse(true);
+                t.moveEnd('character', len);
+                t.moveStart('character', len);
+                t.select();
+            }
+        }
+
+
+function validateForm()
+{
+	if(document.getElementById("read101").checked==false)
+	{
+		alert("Please Checked We Have Check All Keys are working Properly Option");
+		document.getElementById("read101").focus;
+		return false;
+	}
+}
+
+document.getElementById('paratxt').onmousedown = function(e){
+  e.preventDefault();
+}
+function isValidKey1(e) {
+        var evt = e || window.event;
+        if (evt) 
+		{
+            var keyCode = evt.charCode || evt.keyCode;
+			
+			if (keyCode === 8) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 13) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 37) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 38) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 39) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 40) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+        }
+    }
+
+</script>
+</div></body></html>
