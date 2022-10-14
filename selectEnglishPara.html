@@ -153,14 +153,10 @@ h1 {
   <div class="brand-title">Sd Typing Practice</div>
   <div class="inputs">
    <label >Choose PeraGraph</label>
-   <select name="type" id="selector" required>
+   <select name="type" id="selector" required onchange="location = this.value;">
       <option class="special" value="" disabled selected hidden>Select Peragraph</option>
-	   <option class="special"><a href="home_english.html">Peragraph 1</a></option>
-      <option class="special"><a href="home_english2.html">Peragraph 2</a></option>
-      <option class="special"><a href="home_english3.html">Peragraph 3</a></option>
-	   <option class="special"><a href="home_english4.html">Peragraph 4</a></option>
-	   <option class="special"><a href="home_english5.html">Peragraph 5</a></option>
-	   <option class="special"><a href="home_english6.html">Peragraph 6</a></option>
+	   <option class="special" value="home_english.html">Peragraph 1</option>
+	   <option class="special" value="home_english2.html">Peragraph 2</option>
    </select>
     <button type="submit">Submit</button>
   </div>
