@@ -44,7 +44,11 @@
 		
 		#message{
 			font-family: sans-serif;
-		
+			-moz-user-select: -moz-none;
+	        -khtml-user-select: none;
+	        -webkit-user-select: none;
+	        -ms-user-select: none;
+	        user-select: none;
 		}
 		
 		#text{
@@ -60,7 +64,7 @@
 				animation-iteration-count: infinite;
 				
 			}
-		
+	   	
 
 </style>
 
@@ -104,7 +108,82 @@ function resetCounter(){
 
 </script>
 
-	<div class="main my-5">
+<script>
+	 var elem = document.documentElement;
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+</script>
+
+<script>
+	document.getElementById('text').onmousedown = function(e){
+  e.preventDefault();
+}
+function isValidKey1(e) {
+        var evt = e || window.event;
+        if (evt) 
+		{
+            var keyCode = evt.charCode || evt.keyCode;
+			
+			if (keyCode === 8) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 13) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 37) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 38) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 39) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 40) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+        }
+    }
+</script>
+
+	<div class="main my-5" id="main1">
 
 
 			<div class="content container-fluid">
@@ -229,6 +308,16 @@ const end= () => {
 	let endTime= date.getTime();
 	let timeTaken= (endTime-startTime-800)/1000;
 	console.log(timeTaken);
+	let mm=parseInt(timeTaken/60);
+	let hh=parseInt(mm/60);
+		mm=mm%60;
+		if(hh<=9)
+			hh="0"+hh;
+		if(mm<=9)
+			mm="0"+mm;
+	let ss=parseInt(timeTaken%60);
+		if(ss<=9)
+			ss="0"+ss;
 
 	let totalWords= (message.innerText.split(" ")).length;
 	if((text.value.trim()).length>0)
@@ -247,10 +336,14 @@ const end= () => {
 	console.log('Total Words:'+wordsCount+ 'Correct Words:'+correctWords);
 	
 
-	$("#result h4").html(`Speed:  ${speed} wpm <br> 
-						Words Typed: ${wordsCount}  <br> 
-						Correct Words: ${correctWords} <br> 
-						Accuracy:	${Math.round((correctWords/wordsCount)*100)}%`);
+	$("#main1").html(`<h3>Your Test Is Submitted Successfully. Here Are Your Details:</h3><br>
+	<h4>Speed:  ${speed} wpm <br> 
+	Words Typed: ${wordsCount}  <br> 
+	Correct Words: ${correctWords} <br>
+	Time Taken By You :  ${mm}:${ss}  <br>
+	Accuracy:	${Math.round((correctWords/wordsCount)*100)}%</h4><br>
+	<a href="index.html">Refresh The Page To Start Test Again Or Click Here To Goback to Homepage</a>
+	`);
 	$("#text").prop("disabled",true);
 }
 
@@ -279,6 +372,8 @@ button.addEventListener('click',function(){
 		$("#result").fadeOut();
 		$("#text").prop("disabled",false);
 		start();
+		timerWatch();
+		openFullscreen();
 
 	}
 	else
