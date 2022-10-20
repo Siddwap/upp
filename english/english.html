@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Typing Speed & Accuracy</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Kumbh+Sans&family=Ranchers&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Kufam:wght@500&display=swap" rel="stylesheet"> 
+
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			font-family: sans-serif;
+		}
+		body{
+			margin: -15px;
+		}
+			
+		.main{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+            margin: 0px;
+		
+		}
+		
+		.content{
+		
+			text-align: center;
+            margin: -33px;
+			}
+		
+		.content h1{
+			/* font-family: 'Kufam', cursive; */
+		}
+		
+		#message{
+			font-family: sans-serif;
+		
+		}
+		
+		#text{
+			font-size: 20px;
+			width: 85%;
+		}
+			textarea:focus{
+				
+				animation: border-color-change;
+				animation-duration: 10s;
+				animation-fill-mode: forwards;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+				
+			}
+		
+
+</style>
+
+</head>
+
+<body >
+
+<script>
+    var len=0;
+var flag=true;
+var tm=900;
+
+function timerWatch()
+{
+		var mm=parseInt(tm/60);
+		var hh=parseInt(mm/60);
+		mm=mm%60;
+		if(hh<=9)
+			hh="0"+hh;
+		if(mm<=9)
+			mm="0"+mm;
+		var ss=tm%60;
+		if(ss<=9)
+			ss="0"+ss;
+		tm=tm-1;
+		if(tm<=0){
+			frm.submit();
+		}
+		else{
+		document.getElementById("timer").innerHTML="Time Left "+hh+":"+mm+":"+ss;
+		}	
+	
+	setTimeout("timerWatch()",1000);
+	
+}
+function resetCounter(){ 
+  clearInterval(interval); 
+  i = 0; 
+  counter.innerHTML = i; 
+} 
+
+</script>
+
+	<div class="main my-5">
+
+
+			<div class="content container-fluid">
+
+                <div style="height:105px; padding:5px; background-color:#295d9c; cursor:no-drop; font-family: 'Times New Roman', Times, serif;"  oncontextmenu="return false">
+	
+                    <div style="width:45%; position:relative; float:left;" oncontextmenu="return false"><table width="100%"><tr><td style="padding-left:20px; width:90px">
+                                <img src="NTA_logo_1.png" style="height:99px">
+                        </td><td style="font-size:32px; font-weight:bold; text-align:left; line-height:35px; color:#FFFFFF; padding-left:20px; padding-top:10px; text-shadow:2px 2px 5px #000000;">
+                    English Typing  Test<br><span style='font-size:16px;'> Exam Center : UPSI-LUCKNOW</span>	</td></tr></table>
+                    </div>
+                
+                    <div style="position:relative; float:left; width:90px;"  oncontextmenu="return false">
+                    
+                        <img src="12345.jpg" style="height:90px; width:85px; border-radius:15px; border:solid 1px #CCCCCC;">
+                        </div>
+                <div style="width:30%; padding:8px;  font-size:16px; text-shadow:2px 2px 3px #000000; line-height:22px; position:relative; float:left;"   oncontextmenu="return false">
+                            <table style="color:#FFFFFF" cellpadding="1" cellspacing="0">
+                        <tr><td>Registration No </td><td>:</td><td>11722</td></tr>
+                        <tr><td>Candidate Name </td><td>:</td><td>Dummy_11722</td></tr>
+                        <tr><td>Father's Name</td><td>:</td><td>XXXX_XXX</td></tr>
+                        <tr><td>Exam Date & Time </td><td>:</td><td>30-09-2022 || 10:00 AM</td></tr>  
+                    </table>	
+				</div>
+
+                <div style="position:relative; float:left;padding-top:15px; font-size:28px; font-weight:bold; color:#FFFFFF; text-shadow:2px 2px 3px #000000; text-align:center; width:15%;" id="timer"  oncontextmenu="return false"></div>
+            </div>
+            <script>
+                var para="It is an age when the kind of work that men do is likely to change greatly even during a single generation. The advances in technical knowledge are occurring with such speed that what is up to date today may be entirely replaced in five years. A hundred years ago if you worked in the coal industry or in cotton the idea that your work might alter much or even less likely disappear altogether, never arose. Nowadays the pace of change has produced the situation where the work of large numbers of people is coming to an end. The greater number of these workers get jobs again almost at once in some other industry but not all of them do. The firm involved is expected to meet the cost of payments to its employees at any rate. Today it is regarded as only fair that the firm has a responsibility to its workers. Such payments to workers who suddenly find themselves through no fault of their own without a job are now taken for granted. When you come to look at the matter a little more closely you find that there are many people who might have claims for some such compensation. Suppose a factory closes or partly closes because of automation, what about the man who used to sell newspapers at the gates. What about the lady who keeps the little general shop and finds her trade has decreased heavily in a day or two.  A Similar situation arises when some new motorway is built and leaves on one side the cafe on the old road where the traffic used to pass. Such persons do not at the moment receive any consideration at all and it is difficult to see how any kind of national system or insurance scheme could provide for these situations. They will certainly arise still more often in this second half of the twentieth century. In a world of rapid social and economic change perhaps the best advice, even if it is a cynical advice, is to work for a very large organization. The reason is that if there is going to be redundancy it will attract a great deal of publicity and there will be pressure on the firm to make generous payments to its employees in compensation for loss of job. The large organization is more likely to have the means to pay.";
+            </script>
+                <div style="width:99%; padding-top:5px;">
+                <table width="100%">
+                <tr><td>
+                <div style="cursor:no-drop; text-align:left; line-height:25px; font-size:20px; padding: 5px; overflow: auto;" id="message">
+                    It is an age when the kind of work that men do is likely to change greatly even during a single generation. The advances in technical knowledge are occurring with such speed that what is up to date today may be entirely replaced in five years. A hundred years ago if you worked in the coal industry or in cotton the idea that your work might alter much or even less likely disappear altogether, never arose. Nowadays the pace of change has produced the situation where the work of large numbers of people is coming to an end. The greater number of these workers get jobs again almost at once in some other industry but not all of them do. The firm involved is expected to meet the cost of payments to its employees at any rate. Today it is regarded as only fair that the firm has a responsibility to its workers. Such payments to workers who suddenly find themselves through no fault of their own without a job are now taken for granted. When you come to look at the matter a little more closely you find that there are many people who might have claims for some such compensation. Suppose a factory closes or partly closes because of automation, what about the man who used to sell newspapers at the gates. What about the lady who keeps the little general shop and finds her trade has decreased heavily in a day or two.  A Similar situation arises when some new motorway is built and leaves on one side the cafe on the old road where the traffic used to pass. Such persons do not at the moment receive any consideration at all and it is difficult to see how any kind of national system or insurance scheme could provide for these situations. They will certainly arise still more often in this second half of the twentieth century. In a world of rapid social and economic change perhaps the best advice, even if it is a cynical advice, is to work for a very large organization. The reason is that if there is going to be redundancy it will attract a great deal of publicity and there will be pressure on the firm to make generous payments to its employees in compensation for loss of job. The large organization is more likely to have the means to pay.</div>
+                <div style="width:100%; text-align:center;">
+                    <textarea spellcheck="false" rows="5" name="txtData" id="text" onKeyDown="heightlite()"  oncontextmenu="return false" oncontextmenu="return false"   ondrop="return false" onpaste="return false;"  oncopy="return false;" onMouseUp="return false" style="width:100%; background-color:#CCFF66; line-height:22px; padding:5px; font-size:18px; font-family: 'Times New Roman', Times, serif;" spellcheck="false" autofocus></textarea>
+                </div>
+            <div style="height:45px; width:100%; position:relative; float:right; font-size:20px; line-height:40px; padding-left:0px;" align="center" oncontextmenu="return false">
+                </div> 
+            </td></tr>
+            <tr>
+                <td>
+                    <button class="btn btn-light px-4" id="start-btn" style="font-size: 25px;">Start</button>
+                    <div id="result" class="mt-2 pt-2  text-center">
+					
+                        <h4  class="text-dark"></h4>
+    
+                </div>
+                </td>
+            </tr>
+            </table>
+            </div>
+            </div>
+					
+
+			</div>
+
+			
+
+	</div>
+
+</body>
+<script>
+    function heightlite()
+ {
+	var pass=para.split(" ");
+	var len=pass.length;
+	var msg="";
+	
+	var typ=document.getElementById("text").value;
+
+    var typPara1=typ.split(" ");
+//	typPara = typPara.filter(elm => elm);
+	var typPara=Array();
+	for (var i = 0; i < typPara1.length; i++) 
+	{
+		if(typPara1[i]) 
+		{
+		  typPara.push(typPara1[i]);
+		}
+  	}
+	
+	var typLen=(typPara.length-1);
+	
+	if(typLen>=0){
+		msg="<font color='#0000EE'>";
+	}
+	
+	for(w=0; w<len; w++)
+	{
+	   msg=msg+" "+pass[w];
+	   if(typLen==w)
+	   {
+	   	msg=msg+"</font>";
+	   }
+	}
+	document.getElementById("message").innerHTML=msg;
+	
+ }
+
+</script>
+<script>
+
+    	
+$(document).ready(function() {
+let button= document.getElementById("start-btn");
+let text= document.getElementById("text");
+let message= document.getElementById("message");
+let result= document.getElementById("result");
+let startTime, endTime;
+
+text.disabled=true;
+const start = () => {
+
+let date= new Date();
+startTime = date.getTime();
+}
+
+const end= () => {
+	let date= new Date();
+	let endTime= date.getTime();
+	let timeTaken= (endTime-startTime-800)/1000;
+	console.log(timeTaken);
+
+	let totalWords= (message.innerText.split(" ")).length;
+	if((text.value.trim()).length>0)
+	{
+		var wordsCount= (text.value.split(" ")).length;
+	}
+	else {
+		var wordsCount=0;
+	}
+
+	console.log(totalWords+ " "+wordsCount+message.innerText);
+	
+	let speed= Math.round(((60/timeTaken)*wordsCount));
+
+	let correctWords=accuracy(text.value,message.innerText);
+	console.log('Total Words:'+wordsCount+ 'Correct Words:'+correctWords);
+	
+
+	$("#result h4").html(`Speed:  ${speed} wpm <br> 
+						Words Typed: ${wordsCount}  <br> 
+						Correct Words: ${correctWords} <br> 
+						Accuracy:	${Math.round((correctWords/wordsCount)*100)}%`);
+	$("#text").prop("disabled",true);
+}
+
+const accuracy = (str,message) => {
+
+message=(message.split(" "));
+let count=0;
+console.log(message);
+ str.trim().split(" ").forEach(function (item) { 
+            console.log("item: "+item+ message.indexOf(item)); 
+            if(message.indexOf(item) > -1)
+            	count++;
+         
+        }); 
+ return count;
+}
+
+
+button.addEventListener('click',function(){
+		console.log("Clicked ");
+	if(this.innerText === "Start")
+	{	
+		$("textarea").val("");
+		console.log('Started');
+		this.innerText="Stop";
+		$("#result").fadeOut();
+		$("#text").prop("disabled",false);
+		start();
+
+	}
+	else
+	{	
+		$("#result").fadeIn();
+		console.log('Stopped');
+		$(this).html("Start");
+		end();
+		
+
+	}
+});
+
+
+	
+});
+
+
+</script>
+
+</html>
