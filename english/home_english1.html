@@ -319,6 +319,7 @@ const end= () => {
 		if(ss<=9)
 			ss="0"+ss;
 
+	let tkeyStroks=message.innerText.length;
 	let totalWords= (message.innerText.split(" ")).length;
 	if((text.value.trim()).length>0)
 	{
@@ -330,19 +331,52 @@ const end= () => {
 
 	console.log(totalWords+ " "+wordsCount+message.innerText);
 	
-	let speed= Math.round(((60/timeTaken)*wordsCount));
+	let gspeed= Math.round(((60/timeTaken)*wordsCount));
 
 	let correctWords=accuracy(text.value,message.innerText);
 	console.log('Total Words:'+wordsCount+ 'Correct Words:'+correctWords);
-	
 
-	$("#main1").html(`<h3>Your Test Is Submitted Successfully. Here Are Your Details:</h3><br>
-	<h4>Speed:  ${speed} wpm <br> 
-	Words Typed: ${wordsCount}  <br> 
-	Correct Words: ${correctWords} <br>
-	Time Taken By You :  ${mm}:${ss}  <br>
-	Accuracy:	${Math.round((correctWords/wordsCount)*100)}%</h4><br>
-	<a href="../index.html">Refresh The Page To Start Test Again Or Click Here To Goback to Homepage</a>
+	let wrongWords=wordsCount-correctWords;
+	let nspeed= Math.round(((60/timeTaken)*correctWords));
+	let ukeyStroks=text.value.length;
+
+	$("#main1").html(`
+	
+	<h3>Test Submitted Successfully. Here Are Your Details:</h3><br>
+	<table border="1" style="border:3px solid black; width:60%; font-size:25px; background-color:#e8e4e4;">
+	<tr>
+		<td>Gross Speed</td><td>${gspeed} WPM</td>
+	</tr>
+	<tr>
+		<td>Net Speed</td><td>${nspeed} WPM</td>
+	</tr>
+	<tr>
+		<td>Accuracy</td><td>${Math.round((correctWords/wordsCount)*100)}%</td>
+	</tr>
+	<tr>
+		<td>Time Taken By You</td><td>${mm}:${ss}</td>
+	</tr>
+	<tr>
+		<td>Totle World</td><td>${totalWords}</td>
+	</tr>
+	<tr>
+		<td>Words Typed</td><td>${wordsCount}</td>
+	</tr>
+	<tr>
+		<td>Correct Words</td><td>${correctWords}</td>
+	</tr>
+	<tr>
+		<td>Wrong Words</td><td>${wrongWords}</td>
+	</tr>
+	<tr>
+		<td>Totle KeyStoks</td><td>${tkeyStroks}</td>
+	</tr>
+	<tr>
+		<td>Typed KeyStoks</td><td>${ukeyStroks}</td>
+	</tr>
+</table>
+	<br>
+	<a href="index.html">Refresh The Page To Start Test Again Or Click Here To Goback to Homepage</a>
 	`);
 	$("#text").prop("disabled",true);
 }
@@ -368,7 +402,7 @@ button.addEventListener('click',function(){
 	{	
 		$("textarea").val("");
 		console.log('Started');
-		this.innerText="Stop";
+		this.innerText="Submit";
 		$("#result").fadeOut();
 		$("#text").prop("disabled",false);
 		start();
@@ -379,7 +413,7 @@ button.addEventListener('click',function(){
 	else
 	{	
 		$("#result").fadeIn();
-		console.log('Stopped');
+		console.log('Submit');
 		$(this).html("Start");
 		end();
 		
