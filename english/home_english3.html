@@ -1,297 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sd Typing English Test</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Kumbh+Sans&family=Ranchers&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Kufam:wght@500&display=swap" rel="stylesheet"> 
+
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			font-family: sans-serif;
+		}
+		body{
+			margin: -15px;
+		}
+			
+		.main{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+            margin: 0px;
+		
+		}
+		
+		.content{
+		
+			text-align: center;
+            margin: -33px;
+			}
+		
+		.content h1{
+			/* font-family: 'Kufam', cursive; */
+		}
+		
+		#message{
+			font-family: sans-serif;
+			-moz-user-select: -moz-none;
+	        -khtml-user-select: none;
+	        -webkit-user-select: none;
+	        -ms-user-select: none;
+	        user-select: none;
+		}
+		
+		#text{
+			font-size: 20px;
+			width: 85%;
+		}
+			textarea:focus{
+				
+				animation: border-color-change;
+				animation-duration: 10s;
+				animation-fill-mode: forwards;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+				
+			}
+	   	
+
+</style>
+
+</head>
+
+<body >
 
 <script>
     var len=0;
-    var flag=true;
-    var tm=890;
-    
-    function timerWatch()
-    {
-            var mm=parseInt(tm/60);
-            var hh=parseInt(mm/60);
-            mm=mm%60;
-            if(hh<=9)
-                hh="0"+hh;
-            if(mm<=9)
-                mm="0"+mm;
-            var ss=tm%60;
-            if(ss<=9)
-                ss="0"+ss;
-            tm=tm-1;
-            if(tm<=0){
-                frm.submit();
-            }
-            else{
-            document.getElementById("timer").innerHTML="Time Left "+hh+":"+mm+":"+ss;
-            }	
-        var dtm=parseInt(tm%10);
-        if(dtm==0)
-        {
-         ajax_func(tm);
-        }
-        
-        if(flag==true)
-        {
-            setTimeout("timerWatch()",1000);
-        }
-    }
-    /////////////////////////////////////////////////////////////
-    function ajax_func(tm)
-    {
-        var xmlobj;
-        if(window.XMLHttpRequest)
-        {
-            xmlobj=new XMLHttpRequest();
-        }
-        else
-        {
-            xmlobj=new ActiveXObject("Microsoft.XMLHTTP");	
-        }
-        xmlobj.onreadystatechange=function()
-        {
-            if(xmlobj.readyState==4 && xmlobj.status==200)
-            {
-                flag=true;
-                var mm=parseInt(tm/60);
-                var hh=parseInt(mm/60);
-                mm=mm%60;
-                if(hh<=9)
-                    hh="0"+hh;
-                if(mm<=9)
-                    mm="0"+mm;
-                var ss=tm%60;
-                if(ss<=9)
-                    ss="0"+ss;
-                tm=tm-1;
-                if(tm<=0){
-                    frm.submit();
-                }
-                else{
-                document.getElementById("timer").innerHTML="Time Left "+hh+":"+mm+":"+ss;
+var flag=true;
+var tm=900;
+
+function timerWatch()
+{
+		var mm=parseInt(tm/60);
+		var hh=parseInt(mm/60);
+		mm=mm%60;
+		if(hh<=9)
+			hh="0"+hh;
+		if(mm<=9)
+			mm="0"+mm;
+		var ss=tm%60;
+		if(ss<=9)
+			ss="0"+ss;
+		tm=tm-1;
+		if(tm<=0){
+			frm.submit();
+		}
+		else{
+		document.getElementById("timer").innerHTML="Time Left "+hh+":"+mm+":"+ss;
+		}	
+	
+	setTimeout("timerWatch()",1000);
+	
+}
+function resetCounter(){ 
+  clearInterval(interval); 
+  i = 0; 
+  counter.innerHTML = i; 
+} 
+
+</script>
+
+<script>
+	 var elem = document.documentElement;
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+</script>
+
+<script>
+	document.getElementById('text').onmousedown = function(e){
+  e.preventDefault();
+}
+function isValidKey1(e) {
+        var evt = e || window.event;
+        if (evt) 
+		{
+            var keyCode = evt.charCode || evt.keyCode;
+			
+			if (keyCode === 8) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
                 }
             }
-                            
-            if(xmlobj.readyState==4 && (xmlobj.status==12029 || xmlobj.status==0))
-            {
-                document.getElementById('paratxt').disabled=true;
-                document.getElementById('errorMSG').style.display="block";
-                flag=false;
-            }
-        }		
-        var para=document.getElementById("paratxt").value;
-        para1=encodeURIComponent(para);
-    
-        sendData="rem_time="+tm+"&para="+para1;
-        xmlobj.open("post","timer_english.php",true);
-        xmlobj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        //xmlobj.setRequestHeader("Content-length", sendData.length);
-        xmlobj.send(sendData);
-    }
-    /////////////////////////////////////////////////////////////////////////
-    function resumeNow()
-    {
-        flag=true;
-        document.getElementById('paratxt').disabled=false;
-        document.getElementById('errorMSG').style.display="none";
-        timerWatch();
-    }
-    </script>
-    <style>
-    #para101
-    {
-        -moz-user-select: -moz-none;
-        -khtml-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-    </style>
-    <title>Secure Administrative Suite</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-    <meta content="Microsoft FrontPage 5.0" name="GENERATOR">
-    </head>
-    <body onclick="focusTxt()"  bottomMargin="0" leftMargin="0" topMargin="0" rightMargin="0" lang="hi" onload="timerWatch()"  ondragstart="return false;" oncontextmenu="return false" ondragstart="return false;"  ondrop="return false"  onselectstart="return false">
-    <div style="height:14%;; padding:5px; background-color:#295d9c; cursor:no-drop; font-family: 'Times New Roman', Times, serif;"  oncontextmenu="return false">
-        
-        <div style="width:45%; position:relative; float:left;" oncontextmenu="return false"><table width="100%"><tr><td style="padding-left:20px; width:90px">
-                    <img src="../NTA_logo_1.png" style="height:99px">
-            </td><td style="font-size:32px; font-weight:bold; text-align:left; line-height:35px; color:#FFFFFF; padding-left:20px; padding-top:10px; text-shadow:2px 2px 5px #000000;">
-        English Typing  Test<br><span style='font-size:16px;'> Exam Center : Online Exam Center - Lucknow UP</span>	</td></tr></table>
-        </div>
-    
-        <div style="position:relative; float:left; width:90px;"  oncontextmenu="return false">
-        
-            <img src="12345.jpg" style="height:90px; width:85px; border-radius:15px; border:solid 1px #CCCCCC;">
-            </div>
-    <div style="width:30%; padding:8px; text-transform:santencecase; font-size:16px; text-shadow:2px 2px 3px #000000; line-height:22px; position:relative; float:left;"   oncontextmenu="return false">
-                <table style="color:#FFFFFF">
-            <tr><td>Registration No </td><td>:</td><td>1390</td></tr>
-            <tr><td>Candidate Name </td><td>:</td><td>Dummy_1390</td></tr>
-            <tr><td>Father's Name</td><td>:</td><td>XXXX_XXX</td></tr>
-            <tr><td>Exam Date & Time </td><td>:</td><td>07-10-2022 || 10:00 AM</td></tr>
-            
-        </table>	
-    </div>
-        <div style="position:relative; float:left;padding-top:15px; font-size:28px; font-weight:bold; color:#FFFFFF; text-shadow:2px 2px 3px #000000; text-align:center; width:15%;" id="timer"  oncontextmenu="return false"></div>
-    </div>
-    <script>
-        var para="Hindus the answer lies in the appeasement of the influential Muslim clergy & the upper crust of the Muslim community by the Congress leadership led by Mahatma Gandhi, purportedly to counter the British policy of Divide & Rule. Following this policy Gandhi supported the Khilafat Movement, a divisive movement which turned into a communal movement culminating into genocide of Hindus in Malabar. It is noteworthy that Khilafat Movement was opposed by Jinnah whereas Mauling Abu Kalama Azad had supported it. The genocide of hapless Hindus prompted Dr. Hedge war conceives an organization of Hindus. This led to the formation of RSS in 1925. Now that RSS has grown into a force to reckon with, the present Chief of RSS, Dr. Mohan Bhagwat has embarked on the mission to bring the Muslim Community into the mainstream which Congress did not do in pursuit of its narrow political interest or rather alienated the community. With the response he is getting from the intelligentsia and certain sections of the Muslim Community, it is hoped, the bond between the Hindus & Muslims will be strengthened, who have for generations lived harmoniously. Today, with the complexity of designs that we witness worldwide, a digital uprising is very critical. As architects and designers, we must actively invest in newer technology and innovations with in the construction industry to allow stakeholders to save time and money and go paperless in the long run, moving towards environmental sustainability. Modern-day structures are a combination of various interconnected elements and resultants of complex calculations. Ensuring this momentous task is carried out with utmost precision requires a blend of competencies and digital aid. The adoption of various technologies in construction works can enable professionals to save time, improve the quality of work, reduce costs, focus on safety parameters, and increase profit margins. Digitisation can also streamline business models and practices with proper tracking measures, thereby providing transparency and allowing us to collect data, track materials and working hours for effective planning. Incorporating technology also boosts productivity, increases efficiency and reduces project delivery time as communication on projects improves, reducing the scope for confusion and errors. In the present day, continually evolving technology has further strengthened the usage of digital tools such as BIM a popular tool with integrated design practices. This has enabled architecture and engineering to streamline and improve on the lines of quality, accuracy and innovation. Additionally, various 3D integrated design and analysis is software have made construction operations easier by carrying out complex simulations. As a result, such software and tools have become widely popular among architects and designers. Digitised Operations Embracing the Change The construction industry consists of many organizations that are either unprepared for or overwhelmed by the magnitude of new and emerging technologies. The increasing desire for organizations to switch to digital operations is further reinforced by their intent to limit the usage of resources such as paper. This saves enormous printing costs, precious time and storage in a modern-day workspace. In addition, information management.";
-    </script>
-    <form name="frm" method="post" action="thank_english.php">
-    <div id="mainAjax" style="" oncontextmenu="return false">
-        <div style="width:99%; padding-top:5px;">
-        <table width="100%">
-        <tr id="errorMSG" style="display:none;" align="center"><td style="text-align:center;">
-        <span style="background-color:#FFCC00; text-align:center; padding:8px; font-weight:bold; color:#FF0000;">
-        Your Network Connection has Been <div class="	">              </div>Disconnected.Please Contact the Administrator.
-        <input type="button" style="padding:2px;" value="Resume Now" onClick="resumeNow()">
-        </span>
-        </td></tr>
-        <tr><td>
-    <div>
-        <div ondragstart="return false;" style="cursor:no-drop; text-align:left; line-height:22px; font-size:18px; padding: 5px" id="para101">
-        Hindus the answer lies in the appeasement of the influential Muslim clergy & the upper crust of the Muslim community by the Congress leadership led by Mahatma Gandhi, purportedly to counter the British policy of Divide & Rule. Following this policy Gandhi supported the Khilafat Movement, a divisive movement which turned into a communal movement culminating into genocide of Hindus in Malabar. It is noteworthy that Khilafat Movement was opposed by Jinnah whereas Mauling Abu Kalama Azad had supported it. The genocide of hapless Hindus prompted Dr. Hedge war conceives an organization of Hindus. This led to the formation of RSS in 1925. Now that RSS has grown into a force to reckon with, the present Chief of RSS, Dr. Mohan Bhagwat has embarked on the mission to bring the Muslim Community into the mainstream which Congress did not do in pursuit of its narrow political interest or rather alienated the community. With the response he is getting from the intelligentsia and certain sections of the Muslim Community, it is hoped, the bond between the Hindus & Muslims will be strengthened, who have for generations lived harmoniously. Today, with the complexity of designs that we witness worldwide, a digital uprising is very critical. As architects and designers, we must actively invest in newer technology and innovations with in the construction industry to allow stakeholders to save time and money and go paperless in the long run, moving towards environmental sustainability. Modern-day structures are a combination of various interconnected elements and resultants of complex calculations. Ensuring this momentous task is carried out with utmost precision requires a blend of competencies and digital aid. The adoption of various technologies in construction works can enable professionals to save time, improve the quality of work, reduce costs, focus on safety parameters, and increase profit margins. Digitisation can also streamline business models and practices with proper tracking measures, thereby providing transparency and allowing us to collect data, track materials and working hours for effective planning. Incorporating technology also boosts productivity, increases efficiency and reduces project delivery time as communication on projects improves, reducing the scope for confusion and errors. In the present day, continually evolving technology has further strengthened the usage of digital tools such as BIM a popular tool with integrated design practices. This has enabled architecture and engineering to streamline and improve on the lines of quality, accuracy and innovation. Additionally, various 3D integrated design and analysis is software have made construction operations easier by carrying out complex simulations. As a result, such software and tools have become widely popular among architects and designers. Digitised Operations Embracing the Change The construction industry consists of many organizations that are either unprepared for or overwhelmed by the magnitude of new and emerging technologies. The increasing desire for organizations to switch to digital operations is further reinforced by their intent to limit the usage of resources such as paper. This saves enormous printing costs, precious time and storage in a modern-day workspace. In addition, information management.	</div>
-        <div style="width:100%; text-align:center;">
-            <textarea spellcheck="false" rows="5" name="txtData" id="paratxt" onKeyDown="heightlite()"  oncontextmenu="return false" oncontextmenu="return false"   ondrop="return false" onpaste="return false;"  oncopy="return false;" onMouseUp="return false" style="width:100%; background-color:#CCFF66; line-height:22px; padding:5px; font-size:18px; font-family: 'Times New Roman', Times, serif;" spellcheck="false" ></textarea>
-        </div>
-    <!--	<div style="height:45px; width:100%; position:relative; float:right; font-size:20px; line-height:40px; padding-left:0px;" align="center" oncontextmenu="return false">
-         <input type="submit" value="Submit Exam" name="bnt" style="height:28px; width:140px; margin:5px;">  
-        </div>
-        <div style="height:45px; width:450px; position:relative; text-align:center; float:right; font-size:20px; line-height:40px; padding-left:0px;" id="char">
-        Total Strokes : 0
-        oncontextmenu="setCaretPosition(this,this.length)"  onClick="PosEnd(this)"
-    -->
-    </div>
-    </td></tr>
-    </table>
-    </div>
-    </div>
-    
-     </form>
-    
-    
-    
-    <script>
-    function heightlite()
-     {
-        var pass=para.split(" ");
-        var len=pass.length;
-        var msg="";
-        
-        var typ=document.getElementById("paratxt").value;
-    
-        var typPara=typ.split(" ");
-        typPara = typPara.filter(elm => elm);
-        
-        var typLen=(typPara.length-1);
-        
-        if(typLen>=0){
-            msg="<font color='#0000EE'>";
-        }
-        
-        for(w=0; w<len; w++)
-        {
-           msg=msg+" "+pass[w];
-           if(typLen==w)
-           {
-               msg=msg+"</font>";
-           }
-        }
-        document.getElementById("para101").innerHTML=msg;
-        
-     }
-    
-    
-    function PosEnd(end) {
-                var len = end.value.length;
-                  
-                // Mostly for Web Browsers
-                if (end.setSelectionRange) {
-                    end.focus();
-                    end.setSelectionRange(len, len);
-                } else if (end.createTextRange) {
-                    var t = end.createTextRange();
-                    t.collapse(true);
-                    t.moveEnd('character', len);
-                    t.moveStart('character', len);
-                    t.select();
+			if (keyCode === 13) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
                 }
             }
-    
-    
-    function validateForm()
-    {
-        if(document.getElementById("read101").checked==false)
-        {
-            alert("Please Checked We Have Check All Keys are working Properly Option");
-            document.getElementById("read101").focus;
-            return false;
+			if (keyCode === 37) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 38) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 39) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 40) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
         }
     }
-    function focusTxt()
-    {
-    frm.paratxt.focus();
-    }
-    frm.paratxt.focus();
-    paratxt.focus();
-    document.getElementById('paratxt').onmousedown = function(e){
-      e.preventDefault();
-    }
-    function isValidKey1(e) {
-            var evt = e || window.event;
-            if (evt) 
-            {
-                var keyCode = evt.charCode || evt.keyCode;
+</script>
+
+	<div class="main my-5" id="main1">
+
+
+			<div class="content container-fluid">
+
+                <div style="height:105px; padding:5px; background-color:#295d9c; cursor:no-drop; font-family: 'Times New Roman', Times, serif;"  oncontextmenu="return false">
+	
+                    <div style="width:45%; position:relative; float:left;" oncontextmenu="return false"><table width="100%"><tr><td style="padding-left:20px; width:90px">
+                                <img src="../NTA_logo_1.png" style="height:99px">
+                        </td><td style="font-size:32px; font-weight:bold; text-align:left; line-height:35px; color:#FFFFFF; padding-left:20px; padding-top:10px; text-shadow:2px 2px 5px #000000;">
+                    English Typing  Test<br><span style='font-size:16px;'> Exam Center : UPSI-LUCKNOW</span>	</td></tr></table>
+                    </div>
                 
-                if (keyCode === 8) 
-                {
-                    if (evt.preventDefault) {
-                        evt.preventDefault();
-                    } else {
-                        evt.returnValue = false;
-                    }
-                }
-                if (keyCode === 13) 
-                {
-                    if (evt.preventDefault) {
-                        evt.preventDefault();
-                    } else {
-                        evt.returnValue = false;
-                    }
-                }
-                if (keyCode === 37) 
-                {
-                    if (evt.preventDefault) {
-                        evt.preventDefault();
-                    } else {
-                        evt.returnValue = false;
-                    }
-                }
-                if (keyCode === 38) 
-                {
-                    if (evt.preventDefault) {
-                        evt.preventDefault();
-                    } else {
-                        evt.returnValue = false;
-                    }
-                }
-                if (keyCode === 39) 
-                {
-                    if (evt.preventDefault) {
-                        evt.preventDefault();
-                    } else {
-                        evt.returnValue = false;
-                    }
-                }
-                if (keyCode === 40) 
-                {
-                    if (evt.preventDefault) {
-                        evt.preventDefault();
-                    } else {
-                        evt.returnValue = false;
-                    }
-                }
-            }
-        }
+                    <div style="position:relative; float:left; width:90px;"  oncontextmenu="return false">
+                    
+                        <img src="../12345.jpg" style="height:90px; width:85px; border-radius:15px; border:solid 1px #CCCCCC;">
+                        </div>
+                <div style="width:30%; padding:8px;  font-size:16px; text-shadow:2px 2px 3px #000000; line-height:22px; position:relative; float:left;"   oncontextmenu="return false">
+                            <table style="color:#FFFFFF" cellpadding="1" cellspacing="0">
+                        <tr><td>Registration No </td><td>:</td><td>11722</td></tr>
+                        <tr><td>Candidate Name </td><td>:</td><td>Dummy_11722</td></tr>
+                        <tr><td>Father's Name</td><td>:</td><td>XXXX_XXX</td></tr>
+                        <tr><td>Exam Date & Time </td><td>:</td><td>30-09-2022 || 10:00 AM</td></tr>  
+                    </table>	
+				</div>
+
+                <div style="position:relative; float:left;padding-top:15px; font-size:28px; font-weight:bold; color:#FFFFFF; text-shadow:2px 2px 3px #000000; text-align:center; width:15%;" id="timer"  oncontextmenu="return false"></div>
+            </div>
+            <script>
+                var para="Therefore, to remain efficient, competitive and sustainable, businesses must invest in modernising and empowering their legal departments. What, then, is legal transformation? Introduction of technology in legal departments also benefits the business whole, from ensuring business continuity to complying with laws, improving business environment, finalizing contracts, protecting business interests, etc. Hence, many legal departments have undergone a transformation to improve their own operations. Legal Transformation is amalgamating people, processes and data under one umbrella to support legal operations and to significantly improve the way legal departments function. It also enables the organisation to function effortlessly in the new external environment of the day by unifying the various sub functions of the legal department and integrating it with the rest of the organisation. Legal transformation typically involves three steps. Shifting from manual to digital operations across the entire legal function. Digitising and automating cross functional and external coordination. mplementing a system of centralised data, document handling and workflows The key advantage of digitisation and technology in the legal function is more efficient, easier, faster and simpler operational processes enabling faster yet simpler business. Technology enables people to connect faster and collaborate better, enabling simpler ways to doing business. This involves, in a birds eye view, connecting all the constituent functions of corporate legal departments in a single platform, called Enterprise Legal Management ELM. This is a system which connects the entire contract management, matter management, compliances, legal spend etc. seamlessly, while also integrating these with the organisational systems. Outlining and planning the change It is imperative to chart the current status of the processes, operations and data formats of the organisation are they fully manual, or have some basic automation been done? What are the interconnections with other departments and external parties? The organisational strategy and current challenges have also to be considered. These two will enable the charting of the precise steps to be undertaken, a prioritised list of the pain points of the organisation. Prioritisation is essential so that the change is smooth, and does not hamper current operations. For example, if the key challenge is the back end onboarding of new partners is taking time in a fast moving unicorn startup, the first step could be a savvy rapid online onboarding processes including, self service contracting; this enables smooth and fast onboarding of all stakeholders. Alternatively, the pain point could be regulatory compliance in a highly regulated industry. This is the second level of transformation, wherein the key pain point has been addressed now the task is to proceed and incorporate technology throughout the legal function. In the example above, it could include standard templatised contracts, documents, a centralised repository of all contracts and documents, as well as Real time online Compliance and Entity management systems to ensure the company is fully compliant and up to date with the regulations meaning further risk reduction and business agility. One can also have an up to date centralised legal matter management module ensures dispute management, keeping the risks further on.";
+            </script>
+                <div style="width:99%; padding-top:5px;">
+                <table width="100%">
+                <tr><td>
+                <div style="cursor:no-drop; text-align:left; line-height:25px; font-size:20px; padding: 5px; overflow: auto;" id="message">
+                    Therefore, to remain efficient, competitive and sustainable, businesses must invest in modernising and empowering their legal departments. What, then, is legal transformation? Introduction of technology in legal departments also benefits the business whole, from ensuring business continuity to complying with laws, improving business environment, finalizing contracts, protecting business interests, etc. Hence, many legal departments have undergone a transformation to improve their own operations. Legal Transformation is amalgamating people, processes and data under one umbrella to support legal operations and to significantly improve the way legal departments function. It also enables the organisation to function effortlessly in the new external environment of the day by unifying the various sub functions of the legal department and integrating it with the rest of the organisation. Legal transformation typically involves three steps. Shifting from manual to digital operations across the entire legal function. Digitising and automating cross functional and external coordination. mplementing a system of centralised data, document handling and workflows The key advantage of digitisation and technology in the legal function is more efficient, easier, faster and simpler operational processes enabling faster yet simpler business. Technology enables people to connect faster and collaborate better, enabling simpler ways to doing business. This involves, in a birds eye view, connecting all the constituent functions of corporate legal departments in a single platform, called Enterprise Legal Management ELM. This is a system which connects the entire contract management, matter management, compliances, legal spend etc. seamlessly, while also integrating these with the organisational systems. Outlining and planning the change It is imperative to chart the current status of the processes, operations and data formats of the organisation are they fully manual, or have some basic automation been done? What are the interconnections with other departments and external parties? The organisational strategy and current challenges have also to be considered. These two will enable the charting of the precise steps to be undertaken, a prioritised list of the pain points of the organisation. Prioritisation is essential so that the change is smooth, and does not hamper current operations. For example, if the key challenge is the back end onboarding of new partners is taking time in a fast moving unicorn startup, the first step could be a savvy rapid online onboarding processes including, self service contracting; this enables smooth and fast onboarding of all stakeholders. Alternatively, the pain point could be regulatory compliance in a highly regulated industry. This is the second level of transformation, wherein the key pain point has been addressed now the task is to proceed and incorporate technology throughout the legal function. In the example above, it could include standard templatised contracts, documents, a centralised repository of all contracts and documents, as well as Real time online Compliance and Entity management systems to ensure the company is fully compliant and up to date with the regulations meaning further risk reduction and business agility. One can also have an up to date centralised legal matter management module ensures dispute management, keeping the risks further on.</div>
+                <div style="width:100%; text-align:center;">
+                    <textarea spellcheck="false" rows="5" name="txtData" id="text" onKeyDown="heightlite()"  oncontextmenu="return false" oncontextmenu="return false"   ondrop="return false" onpaste="return false;"  oncopy="return false;" onMouseUp="return false" style="width:100%; background-color:#CCFF66; line-height:22px; padding:5px; font-size:18px; font-family: 'Times New Roman', Times, serif;" spellcheck="false" autofocus></textarea>
+                </div>
+            <div style="height:45px; width:100%; position:relative; float:right; font-size:20px; line-height:40px; padding-left:0px;" align="center" oncontextmenu="return false">
+                </div> 
+            </td></tr>
+            <tr>
+                <td>
+                    <button class="btn btn-light px-4" id="start-btn" style="font-size: 25px;">Start</button>
+                    <div id="result" class="mt-2 pt-2  text-center">
+					
+                        <h4  class="text-dark"></h4>
     
-    </script>
-    
+                </div>
+                </td>
+            </tr>
+            </table>
+            </div>
+            </div>
+					
+
+			</div>
+
+			
+
+	</div>
+
+</body>
+<script>
+    function heightlite()
+ {
+	var pass=para.split(" ");
+	var len=pass.length;
+	var msg="";
+	
+	var typ=document.getElementById("text").value;
+
+    var typPara1=typ.split(" ");
+//	typPara = typPara.filter(elm => elm);
+	var typPara=Array();
+	for (var i = 0; i < typPara1.length; i++) 
+	{
+		if(typPara1[i]) 
+		{
+		  typPara.push(typPara1[i]);
+		}
+  	}
+	
+	var typLen=(typPara.length-1);
+	
+	if(typLen>=0){
+		msg="<font color='#0000EE'>";
+	}
+	
+	for(w=0; w<len; w++)
+	{
+	   msg=msg+" "+pass[w];
+	   if(typLen==w)
+	   {
+	   	msg=msg+"</font>";
+	   }
+	}
+	document.getElementById("message").innerHTML=msg;
+	
+ }
+
+</script>
+<script>
+
+    	
+$(document).ready(function() {
+let button= document.getElementById("start-btn");
+let text= document.getElementById("text");
+let message= document.getElementById("message");
+let result= document.getElementById("result");
+let startTime, endTime;
+
+text.disabled=true;
+const start = () => {
+
+let date= new Date();
+startTime = date.getTime();
+}
+
+const end= () => {
+	let date= new Date();
+	let endTime= date.getTime();
+	let timeTaken= (endTime-startTime-800)/1000;
+	console.log(timeTaken);
+	let mm=parseInt(timeTaken/60);
+	let hh=parseInt(mm/60);
+		mm=mm%60;
+		if(hh<=9)
+			hh="0"+hh;
+		if(mm<=9)
+			mm="0"+mm;
+	let ss=parseInt(timeTaken%60);
+		if(ss<=9)
+			ss="0"+ss;
+
+	let tkeyStroks=message.innerText.length;
+	let totalWords= (message.innerText.split(" ")).length;
+	if((text.value.trim()).length>0)
+	{
+		var wordsCount= (text.value.split(" ")).length;
+	}
+	else {
+		var wordsCount=0;
+	}
+
+	console.log(totalWords+ " "+wordsCount+message.innerText);
+	
+	let gspeed= Math.round(((60/timeTaken)*wordsCount));
+
+	let correctWords=accuracy(text.value,message.innerText);
+	console.log('Total Words:'+wordsCount+ 'Correct Words:'+correctWords);
+
+	let wrongWords=wordsCount-correctWords;
+	let nspeed= Math.round(((60/timeTaken)*correctWords));
+	let ukeyStroks=text.value.length;
+
+	$("#main1").html(`
+	
+	<h3>Test Submitted Successfully. Here Are Your Details:</h3><br>
+	<table border="1" style="border:3px solid black; width:60%; font-size:25px; background-color:#e8e4e4;">
+	<tr>
+		<td>Gross Speed</td><td>${gspeed} WPM</td>
+	</tr>
+	<tr>
+		<td>Net Speed</td><td>${nspeed} WPM</td>
+	</tr>
+	<tr>
+		<td>Accuracy</td><td>${Math.round((correctWords/wordsCount)*100)}%</td>
+	</tr>
+	<tr>
+		<td>Time Taken By You</td><td>${mm}:${ss}</td>
+	</tr>
+	<tr>
+		<td>Totle World</td><td>${totalWords}</td>
+	</tr>
+	<tr>
+		<td>Words Typed</td><td>${wordsCount}</td>
+	</tr>
+	<tr>
+		<td>Correct Words</td><td>${correctWords}</td>
+	</tr>
+	<tr>
+		<td>Wrong Words</td><td>${wrongWords}</td>
+	</tr>
+	<tr>
+		<td>Totle KeyStoks</td><td>${tkeyStroks}</td>
+	</tr>
+	<tr>
+		<td>Typed KeyStoks</td><td>${ukeyStroks}</td>
+	</tr>
+</table>
+	<br>
+	<a href="../index.html">Refresh The Page To Start Test Again Or Click Here To Goback to Homepage</a>
+	`);
+	$("#text").prop("disabled",true);
+}
+
+const accuracy = (str,message) => {
+
+message=(message.split(" "));
+let count=0;
+console.log(message);
+ str.trim().split(" ").forEach(function (item) { 
+            console.log("item: "+item+ message.indexOf(item)); 
+            if(message.indexOf(item) > -1)
+            	count++;
+         
+        }); 
+ return count;
+}
+
+
+button.addEventListener('click',function(){
+		console.log("Clicked ");
+	if(this.innerText === "Start")
+	{	
+		$("textarea").val("");
+		console.log('Started');
+		this.innerText="Submit";
+		$("#result").fadeOut();
+		$("#text").prop("disabled",false);
+		start();
+		timerWatch();
+		openFullscreen();
+
+	}
+	else
+	{	
+		$("#result").fadeIn();
+		console.log('Submit');
+		$(this).html("Start");
+		end();
+		
+
+	}
+});
+
+
+	
+});
+
+
+</script>
+
+</html>
