@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sd Typing English Test</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="all.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="css/font.css">
+	<style>
+							@font-face{
+							font-family: remington_gail;
+							src : url('../Kruti_dev_regular.ttf') format('truetype');
+							}
+							
+							@font-face{
+							font-family: kurti_dev;
+							src : url('../Kruti_dev_regular.ttf') format('truetype');
+							}
+							
+							@font-face{
+							font-family: mangal;
+							src: url('Mangal_Regular.ttf');
+							}
+	
+				  </style>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			font-family: english;
+		}
+		body{
+			margin: -15px;
+		}
+			
+		.main{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+            margin: 0px;
+		
+		}
+		
+		.content{
+		
+			text-align: center;
+            margin: -33px;
+			}
+		
+		.content h1{
+			/* font-family: 'Kufam', cursive; */
+		}
+		
+		#message{
+			font-family: sans-serif;
+			-moz-user-select: -moz-none;
+	        -khtml-user-select: none;
+	        -webkit-user-select: none;
+	        -ms-user-select: none;
+	        user-select: none;
+		}
+		
+		#text{
+			font-size: 20px;
+			width: 85%;
+		}
+			textarea:focus{
+				
+				animation: border-color-change;
+				animation-duration: 10s;
+				animation-fill-mode: forwards;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+				
+			}
+	   	
+
+</style>
+
+</head>
+
+<body >
+
+<script>
+    var len=0;
+var flag=true;
+var tm=900;
+
+function timerWatch()
+{
+		var mm=parseInt(tm/60);
+		var hh=parseInt(mm/60);
+		mm=mm%60;
+		if(hh<=9)
+			hh="0"+hh;
+		if(mm<=9)
+			mm="0"+mm;
+		var ss=tm%60;
+		if(ss<=9)
+			ss="0"+ss;
+		tm=tm-1;
+		if(tm<=0){
+			frm.submit();
+		}
+		else{
+		document.getElementById("timer").innerHTML="Time Left "+hh+":"+mm+":"+ss;
+		}	
+	
+	setTimeout("timerWatch()",1000);
+	
+}
+function resetCounter(){ 
+  clearInterval(interval); 
+  i = 0; 
+  counter.innerHTML = i; 
+} 
+
+</script>
+
+<script>
+	 var elem = document.documentElement;
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+</script>
+
+<script>
+	document.getElementById('text').onmousedown = function(e){
+  e.preventDefault();
+}
+function isValidKey1(e) {
+        var evt = e || window.event;
+        if (evt) 
+		{
+            var keyCode = evt.charCode || evt.keyCode;
+			
+			if (keyCode === 8) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 13) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 37) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 38) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 39) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 40) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+        }
+    }
+</script>
+
+	<div class="main my-5" id="main1">
+
+
+			<div class="content container-fluid">
+
+                <div style="height:105px; padding:5px; background-color:#295d9c; cursor:no-drop; font-family: 'Times New Roman', Times, serif;"  oncontextmenu="return false">
+	
+                    <div style="width:45%; position:relative; float:left;" oncontextmenu="return false"><table width="100%"><tr><td style="padding-left:20px; width:90px">
+                                <img src="../NTA_logo_1.png" style="height:99px">
+                        </td><td style="font-size:32px; font-weight:bold; text-align:left; line-height:35px; color:#FFFFFF; padding-left:20px; padding-top:10px; text-shadow:2px 2px 5px #000000;">
+                    English Typing  Test<br><span style='font-size:16px;'> Exam Center : UPSI-LUCKNOW</span>	</td></tr></table>
+                    </div>
+                
+                    <div style="position:relative; float:left; width:90px;"  oncontextmenu="return false">
+                    
+                        <img src="../12345.jpg" style="height:90px; width:85px; border-radius:15px; border:solid 1px #CCCCCC;">
+                        </div>
+                <div style="width:30%; padding:8px;  font-size:16px; text-shadow:2px 2px 3px #000000; line-height:22px; position:relative; float:left;"   oncontextmenu="return false">
+                            <table style="color:#FFFFFF" cellpadding="1" cellspacing="0">
+                        <tr><td>Registration No </td><td>:</td><td>11722</td></tr>
+                        <tr><td>Candidate Name </td><td>:</td><td>Dummy_11722</td></tr>
+                        <tr><td>Father's Name</td><td>:</td><td>XXXX_XXX</td></tr>
+                        <tr><td>Exam Date & Time </td><td>:</td><td>30-09-2022 || 10:00 AM</td></tr>  
+                    </table>	
+				</div>
+
+                <div style="position:relative; float:left;padding-top:15px; font-size:28px; font-weight:bold; color:#FFFFFF; text-shadow:2px 2px 3px #000000; text-align:center; width:15%;" id="timer"  oncontextmenu="return false"></div>
+            </div>
+            <script>
+                var para="हमारे जीवन में संगीत का व्यापक स्थान है। भारतवासियों को अपने प्राचीन युग से अथवा अपने पूर्वजों से शास्त्रीय संगीत के रूप में एक निधि मिली है। हमारे पूर्वजों की दृष्टि में संगीत का ध्येय आध्यात्मिक साधना था और उन्होंने संगीत का इसी आदर्श के अनुकूल विकास किया। हम कह सकते हैं कि हमारे देश में यह कला पूर्णतः के शिखर पर पहुंच चुकी थी। संगीत के ध्येय के संबंध में आज हमारे विचार चाहे कुछ भी हों, यह सभी स्वीकार करेंगे कि इसमें सामंजस्य की ओर ले जाने वाली और व्यक्त जगत में आभास और अहसास कराने वाली शक्ति निहित है। संगीत के वातावरण में ही नहीं बल्कि श्रोताओं और गायकों के मन में भी सामंजस्य की उत्पत्ति होती है। संगीत के उच्च ध्येय और व्यापक प्रभाव के कारण ही प्राचीनकाल में भारतवासियों ने संगीत को जनसाधारण के सामाजिक तथा सांस्कृतिक जीवन में ऊंचा स्थान दिया था। शायद ही कोई ऐसा भारतीय त्यौहार या उत्सव हो जिसमें संगीत का आयोजन न होता हो। संगीत जन्म से मृत्युपर्यंत हमारे साथ रहा है। हमारे सभी रीति-रिवाज़ों में इसका कुछ-न-कुछ स्थान है। शताब्दियों से हम संगीत के प्रशंसक तथा उपासक रहे है और हमने इसकी गणना सदा मानव की उच्चतम साधनाओं में की है। काल के प्रभाव से हम लोगों की रुचि में काफी परिवर्तन हुआ, परंतु शास्त्रीय संगीत उसी प्रकार बना रहा और उसमें कोई विशेष और मौलिक परिवर्तन नहीं हुआ। पर जो भी हेर-फेर हुए, वे हैं ऊपरी पोषक मात्र ही। भारतीय संगीत शरीर और आत्मा से अभी भी वही प्राचीन शास्त्रीय संगीत बना हुआ है। ऐसी आशा की जाती है कि इसमें अभी भी इतनी शक्ति है कि यह अपने को एक बार फिर आधुनिक वातावरण के अनुकूल बना लेगा। बच्चों को भगवान का अवतार माना जाता है, क्योंकि वे ऊंच-नीच, शत्रु-मित्र, छोट-बड़े, रस्म-रिवाज आदि का विचार न करके सबसे मेल-मिलाप रखते हैं। उनके आचार-व्यवहार में लाभ-हानि, रीति-रिवाज, हिन्दू-मुसलमान आदि छोटी-मोटी बातों के लिए स्थान ही नहीं होता। वे सचमुच ही मानव जाति के सच्चे प्रतिनिधि होते हैं। ज्यों-ज्यों बच्चे बड़े होते जाते हैं तो घर का सारा का सारा सामान तितर-बितर कर देते हैं। उनको लाभ-हानि, उचित-अनुचित का कोई ज्ञान नहीं होता।";
+            </script>
+                <div style="width:99%; padding-top:5px;">
+                <table width="100%">
+                <tr><td>
+                <div style="cursor:no-drop; text-align:left; line-height:25px; font-size:20px; padding: 5px; overflow: auto;" id="message">
+                    हमारे जीवन में संगीत का व्यापक स्थान है। भारतवासियों को अपने प्राचीन युग से अथवा अपने पूर्वजों से शास्त्रीय संगीत के रूप में एक निधि मिली है। हमारे पूर्वजों की दृष्टि में संगीत का ध्येय आध्यात्मिक साधना था और उन्होंने संगीत का इसी आदर्श के अनुकूल विकास किया। हम कह सकते हैं कि हमारे देश में यह कला पूर्णतः के शिखर पर पहुंच चुकी थी। संगीत के ध्येय के संबंध में आज हमारे विचार चाहे कुछ भी हों, यह सभी स्वीकार करेंगे कि इसमें सामंजस्य की ओर ले जाने वाली और व्यक्त जगत में आभास और अहसास कराने वाली शक्ति निहित है। संगीत के वातावरण में ही नहीं बल्कि श्रोताओं और गायकों के मन में भी सामंजस्य की उत्पत्ति होती है। संगीत के उच्च ध्येय और व्यापक प्रभाव के कारण ही प्राचीनकाल में भारतवासियों ने संगीत को जनसाधारण के सामाजिक तथा सांस्कृतिक जीवन में ऊंचा स्थान दिया था। शायद ही कोई ऐसा भारतीय त्यौहार या उत्सव हो जिसमें संगीत का आयोजन न होता हो। संगीत जन्म से मृत्युपर्यंत हमारे साथ रहा है। हमारे सभी रीति-रिवाज़ों में इसका कुछ-न-कुछ स्थान है। शताब्दियों से हम संगीत के प्रशंसक तथा उपासक रहे है और हमने इसकी गणना सदा मानव की उच्चतम साधनाओं में की है। काल के प्रभाव से हम लोगों की रुचि में काफी परिवर्तन हुआ, परंतु शास्त्रीय संगीत उसी प्रकार बना रहा और उसमें कोई विशेष और मौलिक परिवर्तन नहीं हुआ। पर जो भी हेर-फेर हुए, वे हैं ऊपरी पोषक मात्र ही। भारतीय संगीत शरीर और आत्मा से अभी भी वही प्राचीन शास्त्रीय संगीत बना हुआ है। ऐसी आशा की जाती है कि इसमें अभी भी इतनी शक्ति है कि यह अपने को एक बार फिर आधुनिक वातावरण के अनुकूल बना लेगा। बच्चों को भगवान का अवतार माना जाता है, क्योंकि वे ऊंच-नीच, शत्रु-मित्र, छोट-बड़े, रस्म-रिवाज आदि का विचार न करके सबसे मेल-मिलाप रखते हैं। उनके आचार-व्यवहार में लाभ-हानि, रीति-रिवाज, हिन्दू-मुसलमान आदि छोटी-मोटी बातों के लिए स्थान ही नहीं होता। वे सचमुच ही मानव जाति के सच्चे प्रतिनिधि होते हैं। ज्यों-ज्यों बच्चे बड़े होते जाते हैं तो घर का सारा का सारा सामान तितर-बितर कर देते हैं। उनको लाभ-हानि, उचित-अनुचित का कोई ज्ञान नहीं होता।</div>
+                <div style="width:100%; text-align:center;">
+                    <textarea spellcheck="false" rows="5" name="txtData" id="text" onKeyDown="heightlite()"  oncontextmenu="return false" oncontextmenu="return false"   ondrop="return false" onpaste="return false;"  oncopy="return false;" onMouseUp="return false" style="width:100%; background-color:#CCFF66; line-height:22px; padding:5px; font-size:18px; font-family: 'Times New Roman', Times, serif;" spellcheck="false" autofocus></textarea>
+                </div>
+            <div style="height:45px; width:100%; position:relative; float:right; font-size:20px; line-height:40px; padding-left:0px;" align="center" oncontextmenu="return false">
+                </div> 
+            </td></tr>
+            <tr>
+                <td>
+                    <button class="btn btn-light px-4" id="start-btn" style="font-size: 25px;">Start</button>
+                    <div id="result" class="mt-2 pt-2  text-center">
+					
+                        <h4  class="text-dark"></h4>
+    
+                </div>
+                </td>
+            </tr>
+            </table>
+            </div>
+            </div>
+					
+
+			</div>
+
+			
+
+	</div>
+
+</body>
+<script>
+    function heightlite()
+ {
+	var pass=para.split(" ");
+	var len=pass.length;
+	var msg="";
+	
+	var typ=document.getElementById("text").value;
+
+    var typPara1=typ.split(" ");
+//	typPara = typPara.filter(elm => elm);
+	var typPara=Array();
+	for (var i = 0; i < typPara1.length; i++) 
+	{
+		if(typPara1[i]) 
+		{
+		  typPara.push(typPara1[i]);
+		}
+  	}
+	
+	var typLen=(typPara.length-1);
+	
+	if(typLen>=0){
+		msg="<font color='#0000EE'>";
+	}
+	
+	for(w=0; w<len; w++)
+	{
+	   msg=msg+" "+pass[w];
+	   if(typLen==w)
+	   {
+	   	msg=msg+"</font>";
+	   }
+	}
+	document.getElementById("message").innerHTML=msg;
+	
+ }
+
+</script>
+<script>
+
+    	
+$(document).ready(function() {
+let button= document.getElementById("start-btn");
+let text= document.getElementById("text");
+let message= document.getElementById("message");
+let result= document.getElementById("result");
+let startTime, endTime;
+
+text.disabled=true;
+const start = () => {
+
+let date= new Date();
+startTime = date.getTime();
+}
+
+const end= () => {
+	let date= new Date();
+	let endTime= date.getTime();
+	let timeTaken= (endTime-startTime-800)/1000;
+	console.log(timeTaken);
+	let mm=parseInt(timeTaken/60);
+	let hh=parseInt(mm/60);
+		mm=mm%60;
+		if(hh<=9)
+			hh="0"+hh;
+		if(mm<=9)
+			mm="0"+mm;
+	let ss=parseInt(timeTaken%60);
+		if(ss<=9)
+			ss="0"+ss;
+
+	let tkeyStroks=message.innerText.length;
+	let totalWords= (message.innerText.split(" ")).length;
+	if((text.value.trim()).length>0)
+	{
+		var wordsCount= (text.value.split(" ")).length;
+	}
+	else {
+		var wordsCount=0;
+	}
+
+	console.log(totalWords+ " "+wordsCount+message.innerText);
+	
+	let gspeed= Math.round(((60/timeTaken)*wordsCount));
+
+	let correctWords=accuracy(text.value,message.innerText);
+	console.log('Total Words:'+wordsCount+ 'Correct Words:'+correctWords);
+
+	let wrongWords=wordsCount-correctWords;
+	let nspeed= Math.round(((60/timeTaken)*correctWords));
+	let ukeyStroks=text.value.length;
+
+	$("#main1").html(`
+	
+	<h3>Test Submitted Successfully. Here Are Your Details:</h3><br>
+	<table border="1" style="border:3px solid black; width:60%; font-size:25px; background-color:#e8e4e4;">
+	<tr>
+		<td>Gross Speed</td><td>${gspeed} WPM</td>
+	</tr>
+	<tr>
+		<td>Net Speed</td><td>${nspeed} WPM</td>
+	</tr>
+	<tr>
+		<td>Accuracy</td><td>${Math.round((correctWords/wordsCount)*100)}%</td>
+	</tr>
+	<tr>
+		<td>Time Taken By You</td><td>${mm}:${ss}</td>
+	</tr>
+	<tr>
+		<td>Totle World</td><td>${totalWords}</td>
+	</tr>
+	<tr>
+		<td>Words Typed</td><td>${wordsCount}</td>
+	</tr>
+	<tr>
+		<td>Correct Words</td><td>${correctWords}</td>
+	</tr>
+	<tr>
+		<td>Wrong Words</td><td>${wrongWords}</td>
+	</tr>
+	<tr>
+		<td>Totle KeyStoks</td><td>${tkeyStroks}</td>
+	</tr>
+	<tr>
+		<td>Typed KeyStoks</td><td>${ukeyStroks}</td>
+	</tr>
+</table>
+	<br>
+	<a href="../index.html">Refresh The Page To Start Test Again Or Click Here To Goback to Homepage</a>
+	`);
+	$("#text").prop("disabled",true);
+}
+
+const accuracy = (str,message) => {
+
+message=(message.split(" "));
+let count=0;
+console.log(message);
+ str.trim().split(" ").forEach(function (item) { 
+            console.log("item: "+item+ message.indexOf(item)); 
+            if(message.indexOf(item) > -1)
+            	count++;
+         
+        }); 
+ return count;
+}
+
+
+button.addEventListener('click',function(){
+		console.log("Clicked ");
+	if(this.innerText === "Start")
+	{	
+		$("textarea").val("");
+		console.log('Started');
+		this.innerText="Submit";
+		$("#result").fadeOut();
+		$("#text").prop("disabled",false);
+		start();
+		timerWatch();
+		openFullscreen();
+
+	}
+	else
+	{	
+		$("#result").fadeIn();
+		console.log('Submit');
+		$(this).html("Start");
+		end();
+		
+
+	}
+});
+
+
+	
+});
+
+
+</script>
+
+</html>
