@@ -1,297 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sd Typing English Test</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Kumbh+Sans&family=Ranchers&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Kufam:wght@500&display=swap" rel="stylesheet"> 
+
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			font-family: sans-serif;
+		}
+		body{
+			margin: -15px;
+		}
+			
+		.main{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+            margin: 0px;
+		
+		}
+		
+		.content{
+		
+			text-align: center;
+            margin: -33px;
+			}
+		
+		.content h1{
+			/* font-family: 'Kufam', cursive; */
+		}
+		
+		#message{
+			font-family: sans-serif;
+			-moz-user-select: -moz-none;
+	        -khtml-user-select: none;
+	        -webkit-user-select: none;
+	        -ms-user-select: none;
+	        user-select: none;
+		}
+		
+		#text{
+			font-size: 20px;
+			width: 85%;
+		}
+			textarea:focus{
+				
+				animation: border-color-change;
+				animation-duration: 10s;
+				animation-fill-mode: forwards;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+				
+			}
+	   	
+
+</style>
+
+</head>
+
+<body >
 
 <script>
     var len=0;
-    var flag=true;
-    var tm=890;
-    
-    function timerWatch()
-    {
-            var mm=parseInt(tm/60);
-            var hh=parseInt(mm/60);
-            mm=mm%60;
-            if(hh<=9)
-                hh="0"+hh;
-            if(mm<=9)
-                mm="0"+mm;
-            var ss=tm%60;
-            if(ss<=9)
-                ss="0"+ss;
-            tm=tm-1;
-            if(tm<=0){
-                frm.submit();
-            }
-            else{
-            document.getElementById("timer").innerHTML="Time Left "+hh+":"+mm+":"+ss;
-            }	
-        var dtm=parseInt(tm%10);
-        if(dtm==0)
-        {
-         ajax_func(tm);
-        }
-        
-        if(flag==true)
-        {
-            setTimeout("timerWatch()",1000);
-        }
-    }
-    /////////////////////////////////////////////////////////////
-    function ajax_func(tm)
-    {
-        var xmlobj;
-        if(window.XMLHttpRequest)
-        {
-            xmlobj=new XMLHttpRequest();
-        }
-        else
-        {
-            xmlobj=new ActiveXObject("Microsoft.XMLHTTP");	
-        }
-        xmlobj.onreadystatechange=function()
-        {
-            if(xmlobj.readyState==4 && xmlobj.status==200)
-            {
-                flag=true;
-                var mm=parseInt(tm/60);
-                var hh=parseInt(mm/60);
-                mm=mm%60;
-                if(hh<=9)
-                    hh="0"+hh;
-                if(mm<=9)
-                    mm="0"+mm;
-                var ss=tm%60;
-                if(ss<=9)
-                    ss="0"+ss;
-                tm=tm-1;
-                if(tm<=0){
-                    frm.submit();
-                }
-                else{
-                document.getElementById("timer").innerHTML="Time Left "+hh+":"+mm+":"+ss;
+var flag=true;
+var tm=900;
+
+function timerWatch()
+{
+		var mm=parseInt(tm/60);
+		var hh=parseInt(mm/60);
+		mm=mm%60;
+		if(hh<=9)
+			hh="0"+hh;
+		if(mm<=9)
+			mm="0"+mm;
+		var ss=tm%60;
+		if(ss<=9)
+			ss="0"+ss;
+		tm=tm-1;
+		if(tm<=0){
+			frm.submit();
+		}
+		else{
+		document.getElementById("timer").innerHTML="Time Left "+hh+":"+mm+":"+ss;
+		}	
+	
+	setTimeout("timerWatch()",1000);
+	
+}
+function resetCounter(){ 
+  clearInterval(interval); 
+  i = 0; 
+  counter.innerHTML = i; 
+} 
+
+</script>
+
+<script>
+	 var elem = document.documentElement;
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+</script>
+
+<script>
+	document.getElementById('text').onmousedown = function(e){
+  e.preventDefault();
+}
+function isValidKey1(e) {
+        var evt = e || window.event;
+        if (evt) 
+		{
+            var keyCode = evt.charCode || evt.keyCode;
+			
+			if (keyCode === 8) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
                 }
             }
-                            
-            if(xmlobj.readyState==4 && (xmlobj.status==12029 || xmlobj.status==0))
-            {
-                document.getElementById('paratxt').disabled=true;
-                document.getElementById('errorMSG').style.display="block";
-                flag=false;
-            }
-        }		
-        var para=document.getElementById("paratxt").value;
-        para1=encodeURIComponent(para);
-    
-        sendData="rem_time="+tm+"&para="+para1;
-        xmlobj.open("post","timer_english.php",true);
-        xmlobj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        //xmlobj.setRequestHeader("Content-length", sendData.length);
-        xmlobj.send(sendData);
-    }
-    /////////////////////////////////////////////////////////////////////////
-    function resumeNow()
-    {
-        flag=true;
-        document.getElementById('paratxt').disabled=false;
-        document.getElementById('errorMSG').style.display="none";
-        timerWatch();
-    }
-    </script>
-    <style>
-    #para101
-    {
-        -moz-user-select: -moz-none;
-        -khtml-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-    </style>
-    <title>Secure Administrative Suite</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-    <meta content="Microsoft FrontPage 5.0" name="GENERATOR">
-    </head>
-    <body onclick="focusTxt()"  bottomMargin="0" leftMargin="0" topMargin="0" rightMargin="0" lang="hi" onload="timerWatch()"  ondragstart="return false;" oncontextmenu="return false" ondragstart="return false;"  ondrop="return false"  onselectstart="return false">
-    <div style="height:14%;; padding:5px; background-color:#295d9c; cursor:no-drop; font-family: 'Times New Roman', Times, serif;"  oncontextmenu="return false">
-        
-        <div style="width:45%; position:relative; float:left;" oncontextmenu="return false"><table width="100%"><tr><td style="padding-left:20px; width:90px">
-                    <img src="../NTA_logo_1.png" style="height:99px">
-            </td><td style="font-size:32px; font-weight:bold; text-align:left; line-height:35px; color:#FFFFFF; padding-left:20px; padding-top:10px; text-shadow:2px 2px 5px #000000;">
-        English Typing  Test<br><span style='font-size:16px;'> Exam Center : Online Exam Center - Lucknow UP</span>	</td></tr></table>
-        </div>
-    
-        <div style="position:relative; float:left; width:90px;"  oncontextmenu="return false">
-        
-            <img src="../12345.jpg" style="height:90px; width:85px; border-radius:15px; border:solid 1px #CCCCCC;">
-            </div>
-    <div style="width:30%; padding:8px; text-transform:santencecase; font-size:16px; text-shadow:2px 2px 3px #000000; line-height:22px; position:relative; float:left;"   oncontextmenu="return false">
-                <table style="color:#FFFFFF">
-            <tr><td>Registration No </td><td>:</td><td>1390</td></tr>
-            <tr><td>Candidate Name </td><td>:</td><td>Dummy_1390</td></tr>
-            <tr><td>Father's Name</td><td>:</td><td>XXXX_XXX</td></tr>
-            <tr><td>Exam Date & Time </td><td>:</td><td>07-10-2022 || 10:00 AM</td></tr>
-            
-        </table>	
-    </div>
-        <div style="position:relative; float:left;padding-top:15px; font-size:28px; font-weight:bold; color:#FFFFFF; text-shadow:2px 2px 3px #000000; text-align:center; width:15%;" id="timer"  oncontextmenu="return false"></div>
-    </div>
-    <script>
-        var para="And knowledge transfer have become a swift process with digitised operations. But, the major challenge the construction industry faces today is smoother communication amongst different stakeholders in the timely completion of projects. Projects are dynamic and often require numerous changes and modifications throughout their lifecycle, especially from the schematic to the completion stage. While we have all progressed towards utilising digital platforms for smooth communication and managing documentation and timeline through various platforms, there still needs to be a seamless integration of everything that is dynamic and acts as a way of communication amongst different stakeholders. This calls for a dire need for digital transformation in the construction sector, especially post-pandemic, with a digitally enabled workforce. Globally, the adoption of technology has enabled firms offering design and construction services to identify inefficiencies, curate an implementation strategy and employ the right personnel. By incorporating advanced technology, integrated practices offering design and engineering consultation seek to increase profitability, streamline processes, reduce project risks, and bring efficiency in their design coordination by pre-empting clashes in design and providing value addition to the designed product. Boosting productivity with technology In the era of pursuing integrated operations, collaboration becomes paramount. Architects use technology platforms such as BIM, allowing effective collaboration with engineers and contractors regarding the designs of projects. With the growing popularity of BIM modeling, using 3D modeling software has become a must for Government projects in certain countries and is increasingly being requested for private projects of all sizes. In regards to ensuring a hazard-free work environment, Augmented Reality (AR)provides an overlay of digital information on top of the real world. Mobile Augmented Reality (MAR) allows software access to phones, thus reducing the usage of high-end laptops and desktops for real-time updates. Additionally, Virtual Reality (VR) enables designers to model structures and simulate them as per various real-world scenarios. Using drones for inspections and surveys cuts down the time involved and the usage of resources. Similarly, the Internet of Things (Iota) manages a plethora of technology and optimizes the use of resources with effective planning and connecting everyone on the team. The future of the Indian built environment has tremendous potential to develop complex structures in challenging environments with diverse social and climatic conditions. The economic narrative on projects must allocate room for enabling state-of-the-art technology on large-scale projects. With multiple stakeholders involved in a project, time management becomes a necessity making collaboration the key to operating in the industry. Technology, when used to its utmost potential, can enable communication to increase between the field and the office. Additionally, real-time data allows plans, permits and other documents to get submitted and approved faster, ensuring supreme project delivery. Therefore, a switch to digital operations with all the costs involved seems a justified move in the industrial context. To win the race of accelerated digitalization, organizations are constantly evolving their hiring strategies. As the crisis unfolds, these organizations are buckling down to refine their hiring process and win the war of talent. Further, the tremendous.";
-    </script>
-    <form name="frm" method="post" action="thank_english.php">
-    <div id="mainAjax" style="" oncontextmenu="return false">
-        <div style="width:99%; padding-top:5px;">
-        <table width="100%">
-        <tr id="errorMSG" style="display:none;" align="center"><td style="text-align:center;">
-        <span style="background-color:#FFCC00; text-align:center; padding:8px; font-weight:bold; color:#FF0000;">
-        Your Network Connection has Been <div class="	">              </div>Disconnected.Please Contact the Administrator.
-        <input type="button" style="padding:2px;" value="Resume Now" onClick="resumeNow()">
-        </span>
-        </td></tr>
-        <tr><td>
-    <div>
-        <div ondragstart="return false;" style="cursor:no-drop; text-align:left; line-height:22px; font-size:18px; padding: 5px" id="para101">
-        And knowledge transfer have become a swift process with digitised operations. But, the major challenge the construction industry faces today is smoother communication amongst different stakeholders in the timely completion of projects. Projects are dynamic and often require numerous changes and modifications throughout their lifecycle, especially from the schematic to the completion stage. While we have all progressed towards utilising digital platforms for smooth communication and managing documentation and timeline through various platforms, there still needs to be a seamless integration of everything that is dynamic and acts as a way of communication amongst different stakeholders. This calls for a dire need for digital transformation in the construction sector, especially post-pandemic, with a digitally enabled workforce. Globally, the adoption of technology has enabled firms offering design and construction services to identify inefficiencies, curate an implementation strategy and employ the right personnel. By incorporating advanced technology, integrated practices offering design and engineering consultation seek to increase profitability, streamline processes, reduce project risks, and bring efficiency in their design coordination by pre-empting clashes in design and providing value addition to the designed product. Boosting productivity with technology In the era of pursuing integrated operations, collaboration becomes paramount. Architects use technology platforms such as BIM, allowing effective collaboration with engineers and contractors regarding the designs of projects. With the growing popularity of BIM modeling, using 3D modeling software has become a must for Government projects in certain countries and is increasingly being requested for private projects of all sizes. In regards to ensuring a hazard-free work environment, Augmented Reality (AR)provides an overlay of digital information on top of the real world. Mobile Augmented Reality (MAR) allows software access to phones, thus reducing the usage of high-end laptops and desktops for real-time updates. Additionally, Virtual Reality (VR) enables designers to model structures and simulate them as per various real-world scenarios. Using drones for inspections and surveys cuts down the time involved and the usage of resources. Similarly, the Internet of Things (Iota) manages a plethora of technology and optimizes the use of resources with effective planning and connecting everyone on the team. The future of the Indian built environment has tremendous potential to develop complex structures in challenging environments with diverse social and climatic conditions. The economic narrative on projects must allocate room for enabling state-of-the-art technology on large-scale projects. With multiple stakeholders involved in a project, time management becomes a necessity making collaboration the key to operating in the industry. Technology, when used to its utmost potential, can enable communication to increase between the field and the office. Additionally, real-time data allows plans, permits and other documents to get submitted and approved faster, ensuring supreme project delivery. Therefore, a switch to digital operations with all the costs involved seems a justified move in the industrial context. To win the race of accelerated digitalization, organizations are constantly evolving their hiring strategies. As the crisis unfolds, these organizations are buckling down to refine their hiring process and win the war of talent. Further, the tremendous.	</div>
-        <div style="width:100%; text-align:center;">
-            <textarea spellcheck="false" rows="5" name="txtData" id="paratxt" onKeyDown="heightlite()"  oncontextmenu="return false" oncontextmenu="return false"   ondrop="return false" onpaste="return false;"  oncopy="return false;" onMouseUp="return false" style="width:100%; background-color:#CCFF66; line-height:22px; padding:5px; font-size:18px; font-family: 'Times New Roman', Times, serif;" spellcheck="false" ></textarea>
-        </div>
-    <!--	<div style="height:45px; width:100%; position:relative; float:right; font-size:20px; line-height:40px; padding-left:0px;" align="center" oncontextmenu="return false">
-         <input type="submit" value="Submit Exam" name="bnt" style="height:28px; width:140px; margin:5px;">  
-        </div>
-        <div style="height:45px; width:450px; position:relative; text-align:center; float:right; font-size:20px; line-height:40px; padding-left:0px;" id="char">
-        Total Strokes : 0
-        oncontextmenu="setCaretPosition(this,this.length)"  onClick="PosEnd(this)"
-    -->
-    </div>
-    </td></tr>
-    </table>
-    </div>
-    </div>
-    
-     </form>
-    
-    
-    
-    <script>
-    function heightlite()
-     {
-        var pass=para.split(" ");
-        var len=pass.length;
-        var msg="";
-        
-        var typ=document.getElementById("paratxt").value;
-    
-        var typPara=typ.split(" ");
-        typPara = typPara.filter(elm => elm);
-        
-        var typLen=(typPara.length-1);
-        
-        if(typLen>=0){
-            msg="<font color='#0000EE'>";
-        }
-        
-        for(w=0; w<len; w++)
-        {
-           msg=msg+" "+pass[w];
-           if(typLen==w)
-           {
-               msg=msg+"</font>";
-           }
-        }
-        document.getElementById("para101").innerHTML=msg;
-        
-     }
-    
-    
-    function PosEnd(end) {
-                var len = end.value.length;
-                  
-                // Mostly for Web Browsers
-                if (end.setSelectionRange) {
-                    end.focus();
-                    end.setSelectionRange(len, len);
-                } else if (end.createTextRange) {
-                    var t = end.createTextRange();
-                    t.collapse(true);
-                    t.moveEnd('character', len);
-                    t.moveStart('character', len);
-                    t.select();
+			if (keyCode === 13) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
                 }
             }
-    
-    
-    function validateForm()
-    {
-        if(document.getElementById("read101").checked==false)
-        {
-            alert("Please Checked We Have Check All Keys are working Properly Option");
-            document.getElementById("read101").focus;
-            return false;
+			if (keyCode === 37) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 38) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 39) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 40) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
         }
     }
-    function focusTxt()
-    {
-    frm.paratxt.focus();
-    }
-    frm.paratxt.focus();
-    paratxt.focus();
-    document.getElementById('paratxt').onmousedown = function(e){
-      e.preventDefault();
-    }
-    function isValidKey1(e) {
-            var evt = e || window.event;
-            if (evt) 
-            {
-                var keyCode = evt.charCode || evt.keyCode;
+</script>
+
+	<div class="main my-5" id="main1">
+
+
+			<div class="content container-fluid">
+
+                <div style="height:105px; padding:5px; background-color:#295d9c; cursor:no-drop; font-family: 'Times New Roman', Times, serif;"  oncontextmenu="return false">
+	
+                    <div style="width:45%; position:relative; float:left;" oncontextmenu="return false"><table width="100%"><tr><td style="padding-left:20px; width:90px">
+                                <img src="../NTA_logo_1.png" style="height:99px">
+                        </td><td style="font-size:32px; font-weight:bold; text-align:left; line-height:35px; color:#FFFFFF; padding-left:20px; padding-top:10px; text-shadow:2px 2px 5px #000000;">
+                    English Typing  Test<br><span style='font-size:16px;'> Exam Center : UPSI-LUCKNOW</span>	</td></tr></table>
+                    </div>
                 
-                if (keyCode === 8) 
-                {
-                    if (evt.preventDefault) {
-                        evt.preventDefault();
-                    } else {
-                        evt.returnValue = false;
-                    }
-                }
-                if (keyCode === 13) 
-                {
-                    if (evt.preventDefault) {
-                        evt.preventDefault();
-                    } else {
-                        evt.returnValue = false;
-                    }
-                }
-                if (keyCode === 37) 
-                {
-                    if (evt.preventDefault) {
-                        evt.preventDefault();
-                    } else {
-                        evt.returnValue = false;
-                    }
-                }
-                if (keyCode === 38) 
-                {
-                    if (evt.preventDefault) {
-                        evt.preventDefault();
-                    } else {
-                        evt.returnValue = false;
-                    }
-                }
-                if (keyCode === 39) 
-                {
-                    if (evt.preventDefault) {
-                        evt.preventDefault();
-                    } else {
-                        evt.returnValue = false;
-                    }
-                }
-                if (keyCode === 40) 
-                {
-                    if (evt.preventDefault) {
-                        evt.preventDefault();
-                    } else {
-                        evt.returnValue = false;
-                    }
-                }
-            }
-        }
+                    <div style="position:relative; float:left; width:90px;"  oncontextmenu="return false">
+                    
+                        <img src="../12345.jpg" style="height:90px; width:85px; border-radius:15px; border:solid 1px #CCCCCC;">
+                        </div>
+                <div style="width:30%; padding:8px;  font-size:16px; text-shadow:2px 2px 3px #000000; line-height:22px; position:relative; float:left;"   oncontextmenu="return false">
+                            <table style="color:#FFFFFF" cellpadding="1" cellspacing="0">
+                        <tr><td>Registration No </td><td>:</td><td>11722</td></tr>
+                        <tr><td>Candidate Name </td><td>:</td><td>Dummy_11722</td></tr>
+                        <tr><td>Father's Name</td><td>:</td><td>XXXX_XXX</td></tr>
+                        <tr><td>Exam Date & Time </td><td>:</td><td>30-09-2022 || 10:00 AM</td></tr>  
+                    </table>	
+				</div>
+
+                <div style="position:relative; float:left;padding-top:15px; font-size:28px; font-weight:bold; color:#FFFFFF; text-shadow:2px 2px 3px #000000; text-align:center; width:15%;" id="timer"  oncontextmenu="return false"></div>
+            </div>
+            <script>
+                var para="With the switch to the credit system. This sub segment has a promising future, making it a fascinating market to watch. Detach Start ups Are Helping India Workforce Up skill & Become Future Ready Professional skill imparting start ups have had phenomenal growth, and this growth will continue for a number of reasons. Addressing the Employment Crisis With a median age of only 28.4 years and a sizable population between the ages of 18 and 35, India, one of the world youngest countries in terms of population, offers a wealth of potential for growth for the economy as a whole. There is a talent gap in the country despite the increasing number of young workers; according to a survey, just one in four management professionals, one in five engineers, and one in ten graduates are employable. Making young people more employable is the main problem that is addressed by detach businesses that provide skill building courses. No other industry has this particular competitive advantage. Due to the high demand for these services and the dearth of suitable substitutes, such firms have a very promising future. The online courses are also customizable and accessible, so anyone can take them from a location of their choice. Providing training for vocational and skills development With only 7 of Indian males obtaining vocational and skill development coaching in the nation urban areas in FY20 the number was only 3.1 in the country rural parts, the proportion of the employable population receiving such training is quite low. According to the Economic Survey of India, female recipients circumstances are much worse. As a result, there is a stark gap between the supply and demand for skills, which can be addressed by startups that provide a wide variety of courses that are especially suited to the requirements of the young, employable workforce. As the nation economy continues to grow, so will the demand for these courses. Tech based professional skills to deliver the highest levels of knowledge and education, detach businesses employ cutting edge, technologically driven methods. Learning is thus simpler and quicker for professionals in numerous areas and businesses. The platforms give students a lot of options because they offer a combination of live lessons and pre recorded lectures. Juggling work and learning new things is doable for those who desire to gain new abilities. For instance, these platforms make it easier to give advanced data and development courses like those in machine learning, data science, web programming, and Android, among other topics. To conclude According to industry estimates, the Indian higher education system consists of around 35,500 colleges and about 700 universities. Over 85 of these students are enrolled in bachelor degree programmes, while over 16 of all students in India are engaged in engineering or technology degree programmes. More than 70 of Indians are either illiterate or poorly educated, and the Right to Education Act has done anything to change that. On this front, online and digital based learning have the full potential to.";
+            </script>
+                <div style="width:99%; padding-top:5px;">
+                <table width="100%">
+                <tr><td>
+                <div style="cursor:no-drop; text-align:left; line-height:25px; font-size:20px; padding: 5px; overflow: auto;" id="message">
+With the switch to the credit system. This sub segment has a promising future, making it a fascinating market to watch. Detach Start ups Are Helping India Workforce Up skill & Become Future Ready Professional skill imparting start ups have had phenomenal growth, and this growth will continue for a number of reasons. Addressing the Employment Crisis With a median age of only 28.4 years and a sizable population between the ages of 18 and 35, India, one of the world youngest countries in terms of population, offers a wealth of potential for growth for the economy as a whole. There is a talent gap in the country despite the increasing number of young workers; according to a survey, just one in four management professionals, one in five engineers, and one in ten graduates are employable. Making young people more employable is the main problem that is addressed by detach businesses that provide skill building courses. No other industry has this particular competitive advantage. Due to the high demand for these services and the dearth of suitable substitutes, such firms have a very promising future. The online courses are also customizable and accessible, so anyone can take them from a location of their choice. Providing training for vocational and skills development With only 7 of Indian males obtaining vocational and skill development coaching in the nation urban areas in FY20 the number was only 3.1 in the country rural parts, the proportion of the employable population receiving such training is quite low. According to the Economic Survey of India, female recipients circumstances are much worse. As a result, there is a stark gap between the supply and demand for skills, which can be addressed by startups that provide a wide variety of courses that are especially suited to the requirements of the young, employable workforce. As the nation economy continues to grow, so will the demand for these courses. Tech based professional skills to deliver the highest levels of knowledge and education, detach businesses employ cutting edge, technologically driven methods. Learning is thus simpler and quicker for professionals in numerous areas and businesses. The platforms give students a lot of options because they offer a combination of live lessons and pre recorded lectures. Juggling work and learning new things is doable for those who desire to gain new abilities. For instance, these platforms make it easier to give advanced data and development courses like those in machine learning, data science, web programming, and Android, among other topics. To conclude According to industry estimates, the Indian higher education system consists of around 35,500 colleges and about 700 universities. Over 85 of these students are enrolled in bachelor degree programmes, while over 16 of all students in India are engaged in engineering or technology degree programmes. More than 70 of Indians are either illiterate or poorly educated, and the Right to Education Act has done anything to change that. On this front, online and digital based learning have the full potential to.</div>
+                <div style="width:100%; text-align:center;">
+                    <textarea spellcheck="false" rows="5" name="txtData" id="text" onKeyDown="heightlite()"  oncontextmenu="return false" oncontextmenu="return false"   ondrop="return false" onpaste="return false;"  oncopy="return false;" onMouseUp="return false" style="width:100%; background-color:#CCFF66; line-height:22px; padding:5px; font-size:18px; font-family: 'Times New Roman', Times, serif;" spellcheck="false" autofocus></textarea>
+                </div>
+            <div style="height:45px; width:100%; position:relative; float:right; font-size:20px; line-height:40px; padding-left:0px;" align="center" oncontextmenu="return false">
+                </div> 
+            </td></tr>
+            <tr>
+                <td>
+                    <button class="btn btn-light px-4" id="start-btn" style="font-size: 25px;">Start</button>
+                    <div id="result" class="mt-2 pt-2  text-center">
+					
+                        <h4  class="text-dark"></h4>
     
-    </script>
-    
+                </div>
+                </td>
+            </tr>
+            </table>
+            </div>
+            </div>
+					
+
+			</div>
+
+			
+
+	</div>
+
+</body>
+<script>
+    function heightlite()
+ {
+	var pass=para.split(" ");
+	var len=pass.length;
+	var msg="";
+	
+	var typ=document.getElementById("text").value;
+
+    var typPara1=typ.split(" ");
+//	typPara = typPara.filter(elm => elm);
+	var typPara=Array();
+	for (var i = 0; i < typPara1.length; i++) 
+	{
+		if(typPara1[i]) 
+		{
+		  typPara.push(typPara1[i]);
+		}
+  	}
+	
+	var typLen=(typPara.length-1);
+	
+	if(typLen>=0){
+		msg="<font color='#0000EE'>";
+	}
+	
+	for(w=0; w<len; w++)
+	{
+	   msg=msg+" "+pass[w];
+	   if(typLen==w)
+	   {
+	   	msg=msg+"</font>";
+	   }
+	}
+	document.getElementById("message").innerHTML=msg;
+	
+ }
+
+</script>
+<script>
+
+    	
+$(document).ready(function() {
+let button= document.getElementById("start-btn");
+let text= document.getElementById("text");
+let message= document.getElementById("message");
+let result= document.getElementById("result");
+let startTime, endTime;
+
+text.disabled=true;
+const start = () => {
+
+let date= new Date();
+startTime = date.getTime();
+}
+
+const end= () => {
+	let date= new Date();
+	let endTime= date.getTime();
+	let timeTaken= (endTime-startTime-800)/1000;
+	console.log(timeTaken);
+	let mm=parseInt(timeTaken/60);
+	let hh=parseInt(mm/60);
+		mm=mm%60;
+		if(hh<=9)
+			hh="0"+hh;
+		if(mm<=9)
+			mm="0"+mm;
+	let ss=parseInt(timeTaken%60);
+		if(ss<=9)
+			ss="0"+ss;
+
+	let tkeyStroks=message.innerText.length;
+	let totalWords= (message.innerText.split(" ")).length;
+	if((text.value.trim()).length>0)
+	{
+		var wordsCount= (text.value.split(" ")).length;
+	}
+	else {
+		var wordsCount=0;
+	}
+
+	console.log(totalWords+ " "+wordsCount+message.innerText);
+	
+	let gspeed= Math.round(((60/timeTaken)*wordsCount));
+
+	let correctWords=accuracy(text.value,message.innerText);
+	console.log('Total Words:'+wordsCount+ 'Correct Words:'+correctWords);
+
+	let wrongWords=wordsCount-correctWords;
+	let nspeed= Math.round(((60/timeTaken)*correctWords));
+	let ukeyStroks=text.value.length;
+
+	$("#main1").html(`
+	
+	<h3>Test Submitted Successfully. Here Are Your Details:</h3><br>
+	<table border="1" style="border:3px solid black; width:60%; font-size:25px; background-color:#e8e4e4;">
+	<tr>
+		<td>Gross Speed</td><td>${gspeed} WPM</td>
+	</tr>
+	<tr>
+		<td>Net Speed</td><td>${nspeed} WPM</td>
+	</tr>
+	<tr>
+		<td>Accuracy</td><td>${Math.round((correctWords/wordsCount)*100)}%</td>
+	</tr>
+	<tr>
+		<td>Time Taken By You</td><td>${mm}:${ss}</td>
+	</tr>
+	<tr>
+		<td>Totle World</td><td>${totalWords}</td>
+	</tr>
+	<tr>
+		<td>Words Typed</td><td>${wordsCount}</td>
+	</tr>
+	<tr>
+		<td>Correct Words</td><td>${correctWords}</td>
+	</tr>
+	<tr>
+		<td>Wrong Words</td><td>${wrongWords}</td>
+	</tr>
+	<tr>
+		<td>Totle KeyStoks</td><td>${tkeyStroks}</td>
+	</tr>
+	<tr>
+		<td>Typed KeyStoks</td><td>${ukeyStroks}</td>
+	</tr>
+</table>
+	<br>
+	<a href="../index.html">Refresh The Page To Start Test Again Or Click Here To Goback to Homepage</a>
+	`);
+	$("#text").prop("disabled",true);
+}
+
+const accuracy = (str,message) => {
+
+message=(message.split(" "));
+let count=0;
+console.log(message);
+ str.trim().split(" ").forEach(function (item) { 
+            console.log("item: "+item+ message.indexOf(item)); 
+            if(message.indexOf(item) > -1)
+            	count++;
+         
+        }); 
+ return count;
+}
+
+
+button.addEventListener('click',function(){
+		console.log("Clicked ");
+	if(this.innerText === "Start")
+	{	
+		$("textarea").val("");
+		console.log('Started');
+		this.innerText="Submit";
+		$("#result").fadeOut();
+		$("#text").prop("disabled",false);
+		start();
+		timerWatch();
+		openFullscreen();
+
+	}
+	else
+	{	
+		$("#result").fadeIn();
+		console.log('Submit');
+		$(this).html("Start");
+		end();
+		
+
+	}
+});
+
+
+	
+});
+
+
+</script>
+
+</html>
