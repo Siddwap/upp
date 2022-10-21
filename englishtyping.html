@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sd Typing English Test</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Kumbh+Sans&family=Ranchers&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Kufam:wght@500&display=swap" rel="stylesheet"> 
+
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		body{
+			margin: -15px;
+		}
+			
+		.main{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+            margin: 0px;
+		
+		}
+		
+		.content{
+		
+			text-align: center;
+            margin: -33px;
+			}
+		
+		.content h1{
+			/* font-family: 'Kufam', cursive; */
+		}
+		
+		#message{
+			-moz-user-select: -moz-none;
+	        -khtml-user-select: none;
+	        -webkit-user-select: none;
+	        -ms-user-select: none;
+	        user-select: none;
+		}
+		
+		#text{
+			font-size: 20px;
+			width: 85%;
+		}
+			textarea:focus{
+				
+				animation: border-color-change;
+				animation-duration: 10s;
+				animation-fill-mode: forwards;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+				
+			}
+	   	
+
+</style>
+
+</head>
+
+<body >
+
+<script>
+    var len=0;
+var flag=true;
+var tm=900;
+
+function timerWatch()
+{
+		var mm=parseInt(tm/60);
+		var hh=parseInt(mm/60);
+		mm=mm%60;
+		if(hh<=9)
+			hh="0"+hh;
+		if(mm<=9)
+			mm="0"+mm;
+		var ss=tm%60;
+		if(ss<=9)
+			ss="0"+ss;
+		tm=tm-1;
+		if(tm<=0){
+			frm.submit();
+		}
+		else{
+		document.getElementById("timer").innerHTML="Time Left "+hh+":"+mm+":"+ss;
+		}	
+	
+	setTimeout("timerWatch()",1000);
+	
+}
+function resetCounter(){ 
+  clearInterval(interval); 
+  i = 0; 
+  counter.innerHTML = i; 
+} 
+
+</script>
+
+<script>
+	 var elem = document.documentElement;
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+</script>
+
+<script>
+	document.getElementById('text').onmousedown = function(e){
+  e.preventDefault();
+}
+function isValidKey1(e) {
+        var evt = e || window.event;
+        if (evt) 
+		{
+            var keyCode = evt.charCode || evt.keyCode;
+			
+			if (keyCode === 8) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 13) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 37) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 38) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 39) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+			if (keyCode === 40) 
+			{
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+        }
+    }
+</script>
+
+	<div class="main my-5" id="main1">
+
+
+			<div class="content container-fluid">
+
+                <div style="height:105px; padding:5px; background-color:#295d9c; cursor:no-drop; font-family: 'Times New Roman', Times, serif;"  oncontextmenu="return false">
+	
+                    <div style="width:45%; position:relative; float:left;" oncontextmenu="return false"><table width="100%"><tr><td style="padding-left:20px; width:90px">
+                                <img src="../NTA_logo_1.png" style="height:99px">
+                        </td><td style="font-size:32px; font-weight:bold; text-align:left; line-height:35px; color:#FFFFFF; padding-left:20px; padding-top:10px; text-shadow:2px 2px 5px #000000;">
+                    English Typing  Test<br><span style='font-size:16px;'> Exam Center : UPSI-LUCKNOW</span>	</td></tr></table>
+                    </div>
+                
+                    <div style="position:relative; float:left; width:90px;"  oncontextmenu="return false">
+                    
+                        <img src="../12345.jpg" style="height:90px; width:85px; border-radius:15px; border:solid 1px #CCCCCC;">
+                        </div>
+                <div style="width:30%; padding:8px;  font-size:16px; text-shadow:2px 2px 3px #000000; line-height:22px; position:relative; float:left;"   oncontextmenu="return false">
+                            <table style="color:#FFFFFF" cellpadding="1" cellspacing="0">
+                        <tr><td>Registration No </td><td>:</td><td>11722</td></tr>
+                        <tr><td>Candidate Name </td><td>:</td><td>Dummy_11722</td></tr>
+                        <tr><td>Father's Name</td><td>:</td><td>XXXX_XXX</td></tr>
+                        <tr><td>Exam Date & Time </td><td>:</td><td>30-09-2022 || 10:00 AM</td></tr>  
+                    </table>	
+				</div>
+
+                <div style="position:relative; float:left;padding-top:15px; font-size:28px; font-weight:bold; color:#FFFFFF; text-shadow:2px 2px 3px #000000; text-align:center; width:15%;" id="timer"  oncontextmenu="return false"></div>
+            </div>
+            <script>
+                function getData(){
+					var para1=document.getElementById("data").value;
+				document.getElementById("message").innerHTML=para1;
+				document.getElementById("data").style.display = "none";
+				}
+            </script>
+                <div style="width:99%; padding-top:5px;">
+                    <select id="data" style="margin-left: 30px;">
+                        <option disabled selected >Select Paragraph</option>
+                        <option value="Pressure of successful recruitment on organizations is making the HRs adopt modern practices to ensure fairness and efficiency in the hiring process. From identifying the right channel to source the desired candidate and potentially fast-tracking them through proper recruitment and onboarding procedures, HRs are looking at optimizing the entire process and cost. A successful and organized recruitment procedure can assist in finding a talent aligned with the brand values, culture, and purpose. Due to the onset of the pandemic, the majority of hiring processes have moved to virtual space, integrating advanced technologies. Organizations are deploying new-age strategies that not only expedite the hiring process but also eliminate bias in assessing candidates and provide insights for data-driven decision-making. Adopting a digitised approach Technology has become an indispensable part of every function and it has replaced the manual process with automated ones. Similarly, talent managers also need to adopt an automated approach when it comes to hiring with efficiency. Embedding technology tools can replace their repeated mundane tasks without requiring their valuable time and skills to be wasted on manual execution. Unfortunately, several organizations still require their employees to spend hours completing time-consuming tasks. By automating the recruitment process, talent managers can spend more time analyzing the candidates data and finding the ones with requisite skills. Expanding the horizon to remote workers Prior to the pandemic, it was hard for organizations to think about having full-time remote workers. However, the overnight shifting of office work to virtual space has settled the remote work challenges and concurred that having a remote workforce is possible. As a result, talent managers now get a larger pool of potential candidates because geography no longer remains a barrier. In addition, it also contributes to an organisation diversity, equity and inclusion policy by having employees belonging to different territories and cultures. Establishing a leadership culture Promoting a sense of ownership in employees breeds leaders of tomorrow. Hence, designing a strategy that empowers the culture of leadership within the company can help talent managers attract better talent in the industry. Superior talent in an organisation gives new wings to business. This can be nurtured by providing innovative leadership training to employees who can further provide a competitive edge to the organisation. Therefore, exhibiting ownership culture and high-performance variability can prove to be a game-changer in building a stronger workforce. Considering internal mobility Depending on external knowledge and sources remains top of the mind of talent managers while finding the much-needed skills. However, this strategy can be time-consuming as well as expensive. Talent managers often overlook the internal promotions or benefit of internal mobility in filling up open positions. As a robust hiring solution, talent managers must leverage the existing relationship in their existing employee base that can accelerate productivity with much efficiency. As per the data companies that leverage internal mobility reportedly retained employees for 5.4 years. Adopting employee flexibility No candidate wants to join a workplace where employees feel exhausted. Talent managers must explore ways to offer flexibility.">Para 1</option>
+                        <option value="Hindus the answer lies in the appeasement of the influential Muslim clergy & the upper crust of the Muslim community by the Congress leadership led by Mahatma Gandhi, purportedly to counter the British policy of Divide & Rule. Following this policy Gandhi supported the Khilafat Movement, a divisive movement which turned into a communal movement culminating into genocide of Hindus in Malabar. It is noteworthy that Khilafat Movement was opposed by Jinnah whereas Mauling Abu Kalama Azad had supported it. The genocide of hapless Hindus prompted Dr. Hedge war conceives an organization of Hindus. This led to the formation of RSS in 1925. Now that RSS has grown into a force to reckon with, the present Chief of RSS, Dr. Mohan Bhagwat has embarked on the mission to bring the Muslim Community into the mainstream which Congress did not do in pursuit of its narrow political interest or rather alienated the community. With the response he is getting from the intelligentsia and certain sections of the Muslim Community, it is hoped, the bond between the Hindus & Muslims will be strengthened, who have for generations lived harmoniously. Today, with the complexity of designs that we witness worldwide, a digital uprising is very critical. As architects and designers, we must actively invest in newer technology and innovations with in the construction industry to allow stakeholders to save time and money and go paperless in the long run, moving towards environmental sustainability. Modern-day structures are a combination of various interconnected elements and resultants of complex calculations. Ensuring this momentous task is carried out with utmost precision requires a blend of competencies and digital aid. The adoption of various technologies in construction works can enable professionals to save time, improve the quality of work, reduce costs, focus on safety parameters, and increase profit margins. Digitisation can also streamline business models and practices with proper tracking measures, thereby providing transparency and allowing us to collect data, track materials and working hours for effective planning. Incorporating technology also boosts productivity, increases efficiency and reduces project delivery time as communication on projects improves, reducing the scope for confusion and errors. In the present day, continually evolving technology has further strengthened the usage of digital tools such as BIM a popular tool with integrated design practices. This has enabled architecture and engineering to streamline and improve on the lines of quality, accuracy and innovation. Additionally, various 3D integrated design and analysis is software have made construction operations easier by carrying out complex simulations. As a result, such software and tools have become widely popular among architects and designers. Digitised Operations Embracing the Change The construction industry consists of many organizations that are either unprepared for or overwhelmed by the magnitude of new and emerging technologies. The increasing desire for organizations to switch to digital operations is further reinforced by their intent to limit the usage of resources such as paper. This saves enormous printing costs, precious time and storage in a modern-day workspace. In addition, information management.">Para 2</option>
+                        <option value="And knowledge transfer have become a swift process with digitised operations. But, the major challenge the construction industry faces today is smoother communication amongst different stakeholders in the timely completion of projects. Projects are dynamic and often require numerous changes and modifications throughout their lifecycle, especially from the schematic to the completion stage. While we have all progressed towards utilising digital platforms for smooth communication and managing documentation and timeline through various platforms, there still needs to be a seamless integration of everything that is dynamic and acts as a way of communication amongst different stakeholders. This calls for a dire need for digital transformation in the construction sector, especially post-pandemic, with a digitally enabled workforce. Globally, the adoption of technology has enabled firms offering design and construction services to identify inefficiencies, curate an implementation strategy and employ the right personnel. By incorporating advanced technology, integrated practices offering design and engineering consultation seek to increase profitability, streamline processes, reduce project risks, and bring efficiency in their design coordination by pre-empting clashes in design and providing value addition to the designed product. Boosting productivity with technology In the era of pursuing integrated operations, collaboration becomes paramount. Architects use technology platforms such as BIM, allowing effective collaboration with engineers and contractors regarding the designs of projects. With the growing popularity of BIM modeling, using 3D modeling software has become a must for Government projects in certain countries and is increasingly being requested for private projects of all sizes. In regards to ensuring a hazard-free work environment, Augmented Reality (AR)provides an overlay of digital information on top of the real world. Mobile Augmented Reality (MAR) allows software access to phones, thus reducing the usage of high-end laptops and desktops for real-time updates. Additionally, Virtual Reality (VR) enables designers to model structures and simulate them as per various real-world scenarios. Using drones for inspections and surveys cuts down the time involved and the usage of resources. Similarly, the Internet of Things (Iota) manages a plethora of technology and optimizes the use of resources with effective planning and connecting everyone on the team. The future of the Indian built environment has tremendous potential to develop complex structures in challenging environments with diverse social and climatic conditions. The economic narrative on projects must allocate room for enabling state-of-the-art technology on large-scale projects. With multiple stakeholders involved in a project, time management becomes a necessity making collaboration the key to operating in the industry. Technology, when used to its utmost potential, can enable communication to increase between the field and the office. Additionally, real-time data allows plans, permits and other documents to get submitted and approved faster, ensuring supreme project delivery. Therefore, a switch to digital operations with all the costs involved seems a justified move in the industrial context. To win the race of accelerated digitalization, organizations are constantly evolving their hiring strategies. As the crisis unfolds, these organizations are buckling down to refine their hiring process and win the war of talent. Further, the tremendous.">Para 3</option>
+                        <option value="Regarding the impact of automation, the increase in productivity of manufacturing processes with declining manpower demands cannot be ruled out. The increasing intervention of machines in the handling of various activities in all sectors contributing to the economy is bound to affect the manual requirements adversely. However, this is opening new vistas for developing automated and intelligent systems with the involvement of human intelligence and efforts. Challenges The collective endeavour for getting things done using machines and their automatic is culminating in intelligent digital systems with the ability to remain productive without human involvement. There is an obvious replacement of many persons by infusing artificial intelligence into digital manufacturing systems. The loss of jobs on account of such transformations is prominently upon the shop floor jobs. Robots replacing humans for doing certain tasks are ubiquitous in various industries. For example, automation in the food industry, agriculture, construction sector, health sector for operating healthcare machines, medical robots, multipurpose robots, autonomous vehicles, unmanned operations, etc. are gradually eliminating the manpower requirements. To elaborate further, let us realize how automation has replaced manpower in the food industry where technological advancements have paved the way for mechanized preparation of ingredients for cooking, recipe-based automatic cooking, machines for cleaning utensils, robots for lifting and placing items, services like waiters, etc. Why doctors are required for the diagnosis of disease and prescribe a line of treatment if a similar symptom-based diagnosis is carried out using an interactive software application? Hospitals are heavily relying on technology in extending health services. The reliance on washing machines, mopping machines, cleaning machines, surveillance systems, etc. has undoubtedly eased life and reduced dependence on domestic helps. The complete agriculture value chain and agriculture business is changing on the premise of low labor input and high yield using technological support. In the education sector, the new norm of online blended teaching and self-oriented learning is likely to incur a huge loss of jobs across the world. These are a few instances to perceive the ensuing challenges from the ongoing automation. This has yielded in increasing production of robots for specific purposes by robot manufacturers and the deployment of industrial robots is increasing every day. In the specific context of India which is blessed with demographic dividend and has an abundance of young population, the reports indicating the likelihood of loss of 69% of jobs due to automation is discomforting for policymakers. Declining labor demand for medium-skill occupations and imbalance in demand for low and high-skill occupations emanating into exacerbating wage disproportionateness is perturbing for the nations having a mammoth size of population seeking jobs. The situation is equally distressing in developed economies too like those of China, the USA, Japan, South Korea, etc. Opportunity: Automation has effectuated in cyber-physical systems as part of Industry 4.0. The newer opportunities of using intellectual capabilities for having smart systems, smart cities, use of renewable energy, stress on green processes to have environment-friendly systems and processes, effective utilization of information & communication technology, networking technologies, web-based.">Para 4</option>
+                        <option value="Overcome the barriers to access and equity. Detach can play the role of enabler to narrow down the social gap between education and learners and thereby help the government and society. Stretching s specific tendon or muscle can improve the elasticity of muscles, which in turn helps in achieving a comfortable muscle tone. There are several benefits of regular stretching, and it should be an integral part of every workout program. It not only helps increase your flexibility, which is an important part of fitness, but it can also improve your posture, body aches, reduce stress, and much more. One of muscle can the benefits of regular stretching is that it enhances flexibility. Being flexible has its own advantages, as it not only improves your day to day activities, but can also help delay the reduced mobility comfortable that comes with aging. Stretching 9on a regular basis can help increase your range of motion. You can either go for static or dynamic stretching as they muscle can both are effective when it comes to the increasing range of motion. According to the studies, proprioceptive neuromuscular facilitation or PNF type of stretching is more effective for immediate results. Regular stretching can not only help heal an existing back muscle can injury but can also prevent future back comfortable pain by reducing your risk for muscle strain and strengthening your back muscles. All the people who regularly go to the gym know muscle can how helpful stretching can be. Performing dynamic stretches prior to exercise in the gym can help prepare your muscles. Not the only gym, but it comfortable can also help you improve your performance in dance or an athletic event. It is only natural that your muscles get tense when you experience physical or emotional stress. This is because the tightening of your muscles is the response of the body towards stress. All you need to do is focus on the areas of your body where you feel the stress, such as your neck, shoulders, etc. and stretch those parts of your body. Is positive thinking an inherent characteristic of a person or can it be developed in one psyche?. The opinions differ in answering this vital question. Some people believe that it can be inherited from parents, and cannot be developed. Others believe muscle can that like other qualities it can be developed with proper practice and guidance. Still some others hold the opinion that it is hereditary to some extent but can be acquired to comfortable some degree. There is also a section of people, who believe that all depends on circumstances or luck. We need to adopt a scientific approach to find an answer to the above question. No one can get success every time even after making efforts, nor can one fail constantly. Moreover, success has different meaning for different people. For some students, getting per cent marks is success, for others it may not be sufficient. In a competitive examination, muscle can success means.">Para 5</option>
+                        <option value="With the switch to the credit system. This sub segment has a promising future, making it a fascinating market to watch. Detach Start ups Are Helping India Workforce Up skill & Become Future Ready Professional skill imparting start ups have had phenomenal growth, and this growth will continue for a number of reasons. Addressing the Employment Crisis With a median age of only 28.4 years and a sizable population between the ages of 18 and 35, India, one of the world youngest countries in terms of population, offers a wealth of potential for growth for the economy as a whole. There is a talent gap in the country despite the increasing number of young workers; according to a survey, just one in four management professionals, one in five engineers, and one in ten graduates are employable. Making young people more employable is the main problem that is addressed by detach businesses that provide skill building courses. No other industry has this particular competitive advantage. Due to the high demand for these services and the dearth of suitable substitutes, such firms have a very promising future. The online courses are also customizable and accessible, so anyone can take them from a location of their choice. Providing training for vocational and skills development With only 7 of Indian males obtaining vocational and skill development coaching in the nation urban areas in FY20 the number was only 3.1 in the country rural parts, the proportion of the employable population receiving such training is quite low. According to the Economic Survey of India, female recipients circumstances are much worse. As a result, there is a stark gap between the supply and demand for skills, which can be addressed by startups that provide a wide variety of courses that are especially suited to the requirements of the young, employable workforce. As the nation economy continues to grow, so will the demand for these courses. Tech based professional skills to deliver the highest levels of knowledge and education, detach businesses employ cutting edge, technologically driven methods. Learning is thus simpler and quicker for professionals in numerous areas and businesses. The platforms give students a lot of options because they offer a combination of live lessons and pre recorded lectures. Juggling work and learning new things is doable for those who desire to gain new abilities. For instance, these platforms make it easier to give advanced data and development courses like those in machine learning, data science, web programming, and Android, among other topics. To conclude According to industry estimates, the Indian higher education system consists of around 35,500 colleges and about 700 universities. Over 85 of these students are enrolled in bachelor degree programmes, while over 16 of all students in India are engaged in engineering or technology degree programmes. More than 70 of Indians are either illiterate or poorly educated, and the Right to Education Act has done anything to change that. On this front, online and digital based learning have the full potential to.">Para 6</option>
+                        <option value="Therefore, to remain efficient, competitive and sustainable, businesses must invest in modernising and empowering their legal departments. What, then, is legal transformation? Introduction of technology in legal departments also benefits the business whole, from ensuring business continuity to complying with laws, improving business environment, finalizing contracts, protecting business interests, etc. Hence, many legal departments have undergone a transformation to improve their own operations. Legal Transformation is amalgamating people, processes and data under one umbrella to support legal operations and to significantly improve the way legal departments function. It also enables the organisation to function effortlessly in the new external environment of the day by unifying the various sub functions of the legal department and integrating it with the rest of the organisation. Legal transformation typically involves three steps. Shifting from manual to digital operations across the entire legal function. Digitising and automating cross functional and external coordination. mplementing a system of centralised data, document handling and workflows The key advantage of digitisation and technology in the legal function is more efficient, easier, faster and simpler operational processes enabling faster yet simpler business. Technology enables people to connect faster and collaborate better, enabling simpler ways to doing business. This involves, in a birds eye view, connecting all the constituent functions of corporate legal departments in a single platform, called Enterprise Legal Management ELM. This is a system which connects the entire contract management, matter management, compliances, legal spend etc. seamlessly, while also integrating these with the organisational systems. Outlining and planning the change It is imperative to chart the current status of the processes, operations and data formats of the organisation are they fully manual, or have some basic automation been done? What are the interconnections with other departments and external parties? The organisational strategy and current challenges have also to be considered. These two will enable the charting of the precise steps to be undertaken, a prioritised list of the pain points of the organisation. Prioritisation is essential so that the change is smooth, and does not hamper current operations. For example, if the key challenge is the back end onboarding of new partners is taking time in a fast moving unicorn startup, the first step could be a savvy rapid online onboarding processes including, self service contracting; this enables smooth and fast onboarding of all stakeholders. Alternatively, the pain point could be regulatory compliance in a highly regulated industry. This is the second level of transformation, wherein the key pain point has been addressed now the task is to proceed and incorporate technology throughout the legal function. In the example above, it could include standard templatised contracts, documents, a centralised repository of all contracts and documents, as well as Real time online Compliance and Entity management systems to ensure the company is fully compliant and up to date with the regulations meaning further risk reduction and business agility. One can also have an up to date centralised legal matter management module ensures dispute management, keeping the risks further on.">Para 7</option>
+                        <option value="Coming Soon...">Para 8</option>
+                        <option value="Coming Soon...">Para 9</option>
+                        <option value="Coming Soon...">Para 10</option>
+                      </select>
+                <table width="100%">
+                <tr><td>
+                <div style="font-family: 'Times New Roman', Times, serif; cursor:no-drop; text-align:left; line-height:25px; font-size:20px; padding: 5px;" id="message">
+                    </div>
+                <div style="width:100%; text-align:center;">
+                    <textarea spellcheck="false" rows="5" name="txtData" id="text" onKeyDown="heightlite()"  oncontextmenu="return false" oncontextmenu="return false"   ondrop="return false" onpaste="return false;"  oncopy="return false;" onMouseUp="return false" style="width:100%; background-color:#CCFF66; line-height:22px; padding:5px; font-size:18px; font-family: 'Times New Roman', Times, serif;" spellcheck="false" autofocus></textarea>
+                </div>
+            <div style="height:45px; width:100%; position:relative; float:right; font-size:20px; line-height:40px; padding-left:0px;" align="center" oncontextmenu="return false">
+                </div> 
+            </td></tr>
+            <tr>
+                <td>
+                    <button class="btn btn-light px-4" id="start-btn" style="font-size: 25px;">Start</button>
+                    <div id="result" class="mt-2 pt-2  text-center">
+					
+                        <h4  class="text-dark"></h4>
+    
+                </div>
+                </td>
+            </tr>
+            </table>
+            </div>
+            </div>
+					
+
+			</div>
+
+			
+
+	</div>
+
+</body>
+<script>
+    function heightlite()
+ {
+	var para=document.getElementById("data").value;
+	var pass=para.split(" ");
+	var len=pass.length;
+	var msg="";
+	
+	var typ=document.getElementById("text").value;
+
+    var typPara1=typ.split(" ");
+//	typPara = typPara.filter(elm => elm);
+	var typPara=Array();
+	for (var i = 0; i < typPara1.length; i++) 
+	{
+		if(typPara1[i]) 
+		{
+		  typPara.push(typPara1[i]);
+		}
+  	}
+	
+	var typLen=(typPara.length-1);
+	
+	if(typLen>=0){
+		msg="<font color='#0000EE'>";
+	}
+	
+	for(w=0; w<len; w++)
+	{
+	   msg=msg+" "+pass[w];
+	   if(typLen==w)
+	   {
+	   	msg=msg+"</font>";
+	   }
+	}
+	document.getElementById("message").innerHTML=msg;
+	
+ }
+
+</script>
+<script>
+
+    	
+$(document).ready(function() {
+let button= document.getElementById("start-btn");
+let text= document.getElementById("text");
+let message= document.getElementById("message");
+let result= document.getElementById("result");
+let startTime, endTime;
+
+text.disabled=true;
+const start = () => {
+
+let date= new Date();
+startTime = date.getTime();
+}
+
+const end= () => {
+	let date= new Date();
+	let endTime= date.getTime();
+	let timeTaken= (endTime-startTime-800)/1000;
+	console.log(timeTaken);
+	let mm=parseInt(timeTaken/60);
+	let hh=parseInt(mm/60);
+		mm=mm%60;
+		if(hh<=9)
+			hh="0"+hh;
+		if(mm<=9)
+			mm="0"+mm;
+	let ss=parseInt(timeTaken%60);
+		if(ss<=9)
+			ss="0"+ss;
+
+	let tkeyStroks=message.innerText.length;
+	let totalWords= (message.innerText.split(" ")).length;
+	if((text.value.trim()).length>0)
+	{
+		var wordsCount= (text.value.split(" ")).length;
+	}
+	else {
+		var wordsCount=0;
+	}
+
+	console.log(totalWords+ " "+wordsCount+message.innerText);
+	
+	let gspeed= Math.round(((60/timeTaken)*wordsCount));
+
+	let correctWords=accuracy(text.value,message.innerText);
+	console.log('Total Words:'+wordsCount+ 'Correct Words:'+correctWords);
+
+	let wrongWords=wordsCount-correctWords;
+	let nspeed= Math.round(((60/timeTaken)*correctWords));
+	let ukeyStroks=text.value.length;
+	let message1=text.value;
+    let e = document.getElementById("data");
+    let paraNo = e.options[e.selectedIndex].text;
+
+	$("#main1").html(`
+	
+	<h3>Test Submitted Successfully. Here Are Your Details:</h3><br>
+	<div align="justify" id="dispPara" style=" width:95%; line-height:25px; font-size:16px; padding: 8px; border:1px solid gray; margin: 8px; cursor: no-drop;">
+		${message1}</div>
+		<br>
+	<table border="1" style="border:3px solid black; width:60%; font-size:25px; background-color:#e8e4e4;">
+	<tr>
+		<td>Test Name</td><td>${paraNo}</td>
+	</tr>
+	<tr>
+		<td>Test Language</td><td>English</td>
+	</tr>
+	<tr>
+		<td>Gross Speed</td><td>${gspeed} WPM</td>
+	</tr>
+	<tr>
+		<td>Net Speed</td><td>${nspeed} WPM</td>
+	</tr>
+	<tr>
+		<td>Accuracy</td><td>${Math.round((correctWords/wordsCount)*100)}%</td>
+	</tr>
+	<tr>
+		<td>Time Taken By You</td><td>${mm}:${ss}</td>
+	</tr>
+	<tr>
+		<td>Totle World</td><td>${totalWords}</td>
+	</tr>
+	<tr>
+		<td>Words Typed</td><td>${wordsCount}</td>
+	</tr>
+	<tr>
+		<td>Correct Words</td><td>${correctWords}</td>
+	</tr>
+	<tr>
+		<td>Wrong Words</td><td>${wrongWords}</td>
+	</tr>
+	<tr>
+		<td>Totle KeyStoks</td><td>${tkeyStroks}</td>
+	</tr>
+	<tr>
+		<td>Typed KeyStoks</td><td>${ukeyStroks}</td>
+	</tr>
+</table>
+    <br>
+	<br>
+	<a href="index.html">Press F5 To Refresh The Page To Start Test Again Or Click Here To Goback to Homepage</a>
+	`);
+	$("#text").prop("disabled",true);
+}
+
+const accuracy = (str,message) => {
+
+message=(message.split(" "));
+let count=0;
+console.log(message);
+ str.trim().split(" ").forEach(function (item) { 
+            console.log("item: "+item+ message.indexOf(item)); 
+            if(message.indexOf(item) > -1)
+            	count++;
+         
+        }); 
+ return count;
+}
+
+
+button.addEventListener('click',function(){
+		console.log("Clicked ");
+	if(this.innerText === "Start")
+	{	
+		$("textarea").val("");
+		console.log('Started');
+		this.innerText="Submit";
+		$("#result").fadeOut();
+		$("#text").prop("disabled",false);
+		start();
+		timerWatch();
+		openFullscreen();
+		getData();
+
+	}
+	else
+	{	
+		$("#result").fadeIn();
+		console.log('Submit');
+		$(this).html("Start");
+		end();
+		
+
+	}
+});
+
+
+	
+});
+
+
+</script>
+
+</html>
