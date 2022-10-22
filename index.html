@@ -11,7 +11,7 @@
   <script>
     function check(form) { /*function to check userid & password*/
               /*the following code checkes whether the entered userid and password are matching*/
-              if(form.userid.value == "johnsmith" && form.pswrd.value == "123") {
+              if(form.userid.value == "freedemo" && form.pswrd.value == "123") {
                   window.open('selectLanguage.html')/*opens the target page while Id & password matches*/
               }
               else if(form.userid.value == "shawez" && form.pswrd.value == "shawez@123") {
@@ -45,13 +45,13 @@
                     <div align="left"  style="padding:5px; color:#295d9c; padding-left:30px; height:30px;">
                         <div style="width:40%; position:relative; float:left; padding:5px;">Username </div>
                          <div style="width:55%; position:relative; float:left">
-                    <input name="userid" placeholder="Username" class="text-field" size="25" style="height:28px; margin-bottom:4px; border:solid 1px #999999;"></div>
+                    <input value="freedemo" name="userid" placeholder="Username" class="text-field" size="25" style="height:28px; margin-bottom:4px; border:solid 1px #999999;"></div>
                     </div>
                     
                     <div align="left" style="padding:5px; top:15px; color:#295d9c; padding-left:30px; height:30px;">
                         <div style="width:40%; position:relative; float:left; padding:5px;">Password </div>
                         <div style="width:55%; position:relative; float:left"> 
-            <input type="password" name="pswrd" placeholder="Password" class="text-field" size="25" style="height:28px; margin-top:4px; border:solid 1px #999999;"></div>
+            <input type="password" value="123" name="pswrd" placeholder="Password" class="text-field" size="25" style="height:28px; margin-top:4px; border:solid 1px #999999;"></div>
                     </div>		
                     <div style="width:100%; padding:8px 0px 8px 0px; text-align:center; font-size:18px; color:#FFFFFF; font-weight:700; background-color:#295d9c; position:relative; bottom:-17px;">
             <input type="submit" class="button" onclick="check(this.form)" value="Login" style="height:30px; width:100px;">
