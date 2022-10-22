@@ -107,7 +107,7 @@ function timerWatch()
 			ss="0"+ss;
 		tm=tm-1;
 		if(tm<=0){
-			frm.submit();
+			document.getElementById("start-btn").click();
 		}
 		else{
 		document.getElementById("timer").innerHTML="Time Left "+hh+":"+mm+":"+ss;
